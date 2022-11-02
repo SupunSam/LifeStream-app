@@ -11,12 +11,12 @@
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <!-- Page Styles -->
     @yield('pagestyles')
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <!-- Vite Styles & Scripts-->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
     @yield('pagecdns')
 </head>
 
@@ -42,7 +42,7 @@
         <main class="flex-grow py-12 bg-gray-200">
             <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
                 {{-- <div class="p-6 overflow-hidden bg-white shadow-sm sm:rounded-lg"> --}}
-                <div class="p-6 overflow-hidden bg-black">
+                <div class="p-6 overflow-hidden bg-transparent">
                     <!-- Alerts -->
                     <x-alerts class="mb-4" :errors="$errors" />
 

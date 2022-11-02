@@ -30,6 +30,6 @@ module.exports = {
         require("@tailwindcss/forms"),
         require("daisyui"),
         require("@tailwindcss/typography"),
-        require('@tailwindcss/line-clamp'),
+        require("@tailwindcss/line-clamp"),
     ],
 };

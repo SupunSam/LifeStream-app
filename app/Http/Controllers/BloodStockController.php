@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BloodStock;
+use App\Models\BloodType;
 use App\Models\Hospital;
 use App\Traits\UploadTrait;
 use Illuminate\Support\Str;
@@ -32,7 +33,8 @@ class BloodStockController extends Controller
     {
         $owner = Auth::user()->id;
         $hospital = Hospital::where('user_id', $owner)->first();
-        return view('bloodstocks.create', compact('hospital'));
+        $bldtypes['data'] = BloodType::orderby('id', 'asc')->select('id', 'bloodtype_name')->get();
+        return view('bloodstocks.create', compact('hospital', 'bldtypes'));
     }
 
     public function store(Request $request)

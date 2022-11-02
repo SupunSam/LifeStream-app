@@ -3,17 +3,28 @@
     <div class="grid grid-cols-6 gap-6">
         {{-- Blood Name --}}
         <div class="col-span-6 sm:col-span-3">
-            <label for="bloodstock_name" class="block text-sm font-medium text-gray-700">Blood Name</label>
-            <input type="text" name="bloodstock_name" id="bloodstock_name" value="{{ old('name') }} @isset($bloodstock){{ $bloodstock->bloodstock_name }} @endisset"
+            <label for="bloodstock_name" class="block text-sm font-medium text-gray-700">Blood Group</label>
+            <input type="text" name="bloodstock_name" id="bloodstock_name"
+                value="{{ old('name') }} @isset($bloodstock){{ $bloodstock->bloodstock_name }} @endisset"
                 class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
         </div>
         {{-- Blood Category --}}
         <div class="col-span-6 sm:col-span-3">
-            <label for="bloodstock_group" class="block text-sm font-medium text-gray-700">Blood Category</label>
+            <label for="bloodstock_group" class="block text-sm font-medium text-gray-700">Blood Group</label>
+            <select class="w-full max-w-xs select select-error" id="bloodstock_group">
+                <option disabled selected>Select the Blood Group</option>
+                @foreach ($bldtypes['data'] as $bldtype)
+                    <option value="{{ $bldtype->id }}">{{ $bldtype->bloodtype_name }}</option>
+                @endforeach
+            </select>
+        </div>
+        {{-- Blood Category --}}
+        {{-- <div class="col-span-6 sm:col-span-3">
+            <label for="bloodstock_group" class="block text-sm font-medium text-gray-700">Hospital ID</label>
             <input type="text" name="bloodstock_group" id="bloodstock_group"
                 value="{{ old('bloodstock_group') }} @isset($bloodstock){{ $bloodstock->bloodstock_group }} @endisset"
                 class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-        </div>
+        </div> --}}
         {{-- Blood Description --}}
         <div class="col-span-6 sm:col-span-3">
             <label for="bloodstock_source" class="block text-sm font-medium text-gray-700">Blood Source</label>
