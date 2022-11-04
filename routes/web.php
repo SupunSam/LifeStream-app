@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
 
 use App\Http\Controllers\BloodStockController;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\HospitalController;
@@ -70,6 +71,9 @@ Route::group(['middleware' => 'auth'], function () {
     // BloodStock Routes
     Route::resource('bloodstocks', BloodStockController::class);
 
+    // Event Routes
+    Route::resource('events', EventController::class);
+
     Route::get('cart', [OrderController::class, 'cart'])->name('cart');
     Route::get('add-to-cart/{id}', [OrderController::class, 'addToCart'])->name('add.to.cart');
     Route::patch('update-cart', [OrderController::class, 'update'])->name('update.cart');
@@ -87,6 +91,8 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'auth'], fu
         ->name('dashboard');
     Route::get('hsptl', [AdminController::class, 'hsptlmanage'])
         ->name('hsptl.manage');
+    Route::get('events', [AdminController::class, 'eventsmanage'])
+        ->name('events.manage');
     Route::get('blood', [AdminController::class, 'bloodmanage'])
         ->name('blood.manage');
 

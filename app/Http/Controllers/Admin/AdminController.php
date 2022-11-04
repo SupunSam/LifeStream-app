@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\BloodStock;
 use App\Models\BloodType;
+use App\Models\Event;
 use App\Models\Hospital;
 use Illuminate\Http\Request;
 
@@ -20,6 +21,12 @@ class AdminController extends Controller
     {
         $hospitals = Hospital::orderBy('created_at', 'desc')->paginate(5);
         return view('admin.hsptl.manage')->with('hospitals', $hospitals);
+    }
+
+    public function eventsmanage(Request $request)
+    {
+        $events = Event::orderBy('created_at', 'desc')->paginate(5);
+        return view('admin.events.manage')->with('events', $events);
     }
 
     public function bloodmanage(Request $request)

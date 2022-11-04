@@ -56,13 +56,13 @@
 {{-- Details Card --}}
 <div class="col-span-1 mt-6 shadow-lg xl:col-span-3 card bg-base-100">
     <div class="card-body">
-        <h2 class="my-4 text-4xl font-bold card-title">Best Blood and Hospitals</h2>
+        <h2 class="my-4 text-4xl font-bold card-title">Be the reason for someone's heartbeat.</h2>
         <div class="mb-4 space-x-2 card-actions">
-            <div class="badge badge-ghost">Burgers</div>
-            <div class="badge badge-ghost">Pizzas</div>
-            <div class="badge badge-ghost">Chinese</div>
+            <div class="badge badge-ghost">Donate Blood</div>
+            <div class="badge badge-ghost">Save Lives</div>
+            <div class="badge badge-ghost">Humanity at best</div>
         </div>
-        <p>You can buy the best blood form the best hospitals in LK from our website. Please enjoy.</p>
+        <p>You can donate or request blood from the best hospitals in Sri Lanka from our website. Save lives</p>
         <div class="justify-end space-x-2 card-actions">
             <button class="btn btn-primary">Login</button>
             <button class="btn">Register</button>
@@ -75,9 +75,9 @@
 <div class="col-span-1 p-8 mt-6 shadow-lg xl:col-span-3 card bg-base-100">
     <ul class="w-full steps">
         <li class="step step-primary">Register</li>
-        <li class="step step-primary">Choose Blood</li>
-        <li class="step">Place the Order</li>
-        <li class="step">Collect and Enjoy</li>
+        <li class="step step-primary">Choose Required Blood</li>
+        <li class="step">Place Blood Request</li>
+        <li class="step">Save a Life</li>
     </ul>
 </div>
 

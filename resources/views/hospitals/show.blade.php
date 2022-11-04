@@ -25,11 +25,11 @@
         <div class="grid grid-cols-1 gap-6 py-6 xl:grid-cols-5 sm:gap-6">
 
             @foreach ($bloodstocks as $bloodstock)
-                <div class="shadow-xl card w-96 bg-base-100">
+                <div class="shadow-xl card w-66 bg-base-100">
                     <div class="items-center text-center card-body">
+                        <h2 class="card-title">{{ $bloodstock->bldtyp->bloodtype_name }}</h2>
                         @include('hospitals.partials.bloodbaglogo', ['bldtype' => $bloodstock->bldtyp->bloodtype_code])
-                        <h2 class="card-title">{{ $bloodstock->bloodstock_count }}</h2>
-                        <h2>{{ $bloodstock->bloodstock_count }}</h2>
+                        <h2 class="card-title collapsed">{{ $bloodstock->count }}</h2>
                         <div class="justify-end card-actions">
                             <a href="{{ route('add.to.cart', [$bloodstock->id, $hospital->id]) }}" class="btn btn-error">Add to Cart</a>
                         </div>

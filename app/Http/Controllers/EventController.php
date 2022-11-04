@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use App\Models\Hospital;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
@@ -24,7 +26,9 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+        $owner = Auth::user()->id;
+        $hospital = Hospital::where('user_id', $owner)->first();
+        return view('events.create', compact('hospital'));
     }
 
     /**

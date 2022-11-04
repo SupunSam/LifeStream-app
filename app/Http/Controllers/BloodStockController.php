@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\BloodStock;
 use App\Models\BloodType;
 use App\Models\Hospital;
+use App\Models\Event;
 use App\Traits\UploadTrait;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -34,24 +35,28 @@ class BloodStockController extends Controller
         $owner = Auth::user()->id;
         $hospital = Hospital::where('user_id', $owner)->first();
         $bldtypes['data'] = BloodType::orderby('id', 'asc')->select('id', 'bloodtype_name')->get();
-        return view('bloodstocks.create', compact('hospital', 'bldtypes'));
+        $events['data'] = Event::orderby('id', 'asc')->select('id', 'name')->get();
+        return view('bloodstocks.create', compact('hospital', 'bldtypes', 'events'));
     }
 
     public function store(Request $request)
     {
+        dd( $request->input('bldstk_hospital'));
         request()->validate([
-            'bloodstock_name' => 'required|max:255',
-            'bloodstock_group' => 'required|max:255',
-            'bloodstock_source' => 'required|max:255',
-            'bloodstock_count' => 'required'
+            'bldstk_hospital' => 'required',
+            'bldstk_event' => 'required',
+            'bldstk_group' => 'required',
+            'bldstk_source' => 'required|max:255',
+            'bldstk_count' => 'required'
         ]);
 
         $newBloodStock = new BloodStock;
 
-        $newBloodStock->bloodstock_name = $request->input('bloodstock_name');
-        $newBloodStock->bloodstock_group = $request->input('bloodstock_group');
-        $newBloodStock->bloodstock_source = $request->input('bloodstock_source');
-        $newBloodStock->bloodstock_count = $request->input('bloodstock_count');
+        $newBloodStock->hospital_id = $request->input('bldstk_hospital');
+        $newBloodStock->event_id = $request->input('bloodstock_event');
+        $newBloodStock->blood_type_id = $request->input('bldstk_group');
+        $newBloodStock->source = $request->input('bldstk_source');
+        $newBloodStock->bloodstock_count = $request->input('bldstk_count');
 
         $newBloodStock->user_id = Auth::user()->id;
         $newBloodStock->hospital_id = (Hospital::firstWhere('user_id', $newBloodStock->user_id))->id;

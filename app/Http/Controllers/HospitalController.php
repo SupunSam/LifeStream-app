@@ -65,14 +65,14 @@ class HospitalController extends Controller
             'hsptl_cover' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        $newRest = new Hospital;
+        $newHsptl = new Hospital;
 
-        $newRest->hsptl_name = $request->input('hsptl_name');
-        $newRest->hsptl_category = $request->input('hsptl_category');
-        $newRest->hsptl_address = $request->input('hsptl_address');
-        $newRest->hsptl_city = $request->input('hsptl_city');
-        $newRest->hsptl_desc = $request->input('hsptl_desc');
-        $newRest->hsptl_web = $request->input('hsptl_web');
+        $newHsptl->hsptl_name = $request->input('hsptl_name');
+        $newHsptl->hsptl_category = $request->input('hsptl_category');
+        $newHsptl->hsptl_address = $request->input('hsptl_address');
+        $newHsptl->hsptl_city = $request->input('hsptl_city');
+        $newHsptl->hsptl_desc = $request->input('hsptl_desc');
+        $newHsptl->hsptl_web = $request->input('hsptl_web');
 
         // Check if a image has been uploaded
         if ($request->has('hsptl_logo')) {
@@ -87,7 +87,7 @@ class HospitalController extends Controller
             // Upload image
             $this->uploadOne($image, $folder, 'public', $name);
             // Set image path in database to filePath
-            $newRest->hsptl_logo = 'storage' . $filePath;
+            $newHsptl->hsptl_logo = 'storage' . $filePath;
         }
 
         // Check if a image has been uploaded
@@ -103,11 +103,11 @@ class HospitalController extends Controller
             // Upload image
             $this->uploadOne($image, $folder, 'public', $name);
             // Set image path in database to filePath
-            $newRest->hsptl_cover = 'storage' . $filePath;
+            $newHsptl->hsptl_cover = 'storage' . $filePath;
         }
 
-        $newRest->user_id = Auth::user()->id;
-        $newRest->save();
+        $newHsptl->user_id = Auth::user()->id;
+        $newHsptl->save();
 
         session()->flash('success', 'You have successfully added a Hospital.');
 
