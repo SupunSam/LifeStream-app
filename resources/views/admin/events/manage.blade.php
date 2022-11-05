@@ -15,10 +15,11 @@
                 <thead class="bg-prime">
                     <tr>
                         <th>#</th>
-                        <th>Name</th>
-                        <th>Category</th>
-                        <th>Address</th>
-                        <th>City</th>
+                        <th>Event Name</th>
+                        <th>Hospital</th>
+                        <th>Location</th>
+                        <th>Event Date</th>
+                        <th>Attendance</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -27,16 +28,16 @@
                     @foreach ($events as $event)
                         <tr>
                             <td>{{ $event->id }}</td>
-                            <td>{{ $event->hsptl_name }}</td>
-                            <td>{{ $event->hsptl_category }}</td>
-                            <td>{{ $event->hsptl_address }}</td>
-                            <td>{{ $event->hsptl_city }}</td>
+                            <td>{{ $event->name }}</td>
+                            <td>{{ $event->evnthsptl->hsptl_name }}</td>
+                            <td>{{ $event->location }}</td>
+                            <td>{{ $event->date }}</td>
+                            <td>{{ $event->attendance }}</td>
                             <td>
-                                {{-- <a class="btn btn-sm btn-info" href="{{ route('hospital.show', $event->id) }}">Show</a> --}}
-                                {{-- <a class="btn btn-sm btn-primary" href="{{ route('hospital.edit', $event->id) }}">Edit</a> --}}
-                                {{-- {!! Form::open(['method' => 'DELETE', 'route' => ['hospital.destroy', $event->id], 'style' => 'display:inline']) !!} --}}
-                                {{-- {!! Form::submit('Delete', ['class' => 'btn btn-sm btn-danger']) !!} --}}
-                                {{-- {!! Form::close() !!} --}}
+                                <a class="btn btn-sm btn-primary" href="{{ route('events.edit', $event->id) }}">Edit</a>
+                                {!! Form::open(['method' => 'DELETE', 'route' => ['events.destroy', $event->id], 'style' => 'display:inline']) !!}
+                                {!! Form::submit('Delete', ['class' => 'btn btn-sm btn-danger']) !!}
+                                {!! Form::close() !!}
                             </td>
                         </tr>
                     @endforeach

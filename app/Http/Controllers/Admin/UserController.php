@@ -88,7 +88,7 @@ class UserController extends Controller
     public function destroy($id, Request $request)
     {
         User::destroy($id);
-        $request->session()->flash('success', 'User deleted successfully.');
+        session()->flash('success', 'User deleted successfully.');
         return redirect(route('admin.users.index'));
     }
 }

@@ -16,6 +16,8 @@
                 <div class="px-4 py-5 bg-white shadow sm:rounded-md sm:overflow-hidden sm:p-6">
 
                     <form action="{{ route('events.store') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        @method('POST')
                         @include('events.partials.eventform', ['create' => true])
                     </form>
 
@@ -28,8 +30,5 @@
 
         </div>
     @endsection
-
-
-
 
 </x-app-layout>

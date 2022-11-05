@@ -5,12 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Event extends Model
+class Request extends Model
 {
     use HasFactory;
-
-    public function evnthsptl()
-    {
-        return $this->belongsTo(Hospital::class, 'hospital_id', 'id');
-    }
 }

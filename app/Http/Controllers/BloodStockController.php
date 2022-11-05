@@ -41,7 +41,6 @@ class BloodStockController extends Controller
 
     public function store(Request $request)
     {
-        dd( $request->input('bldstk_hospital'));
         request()->validate([
             'bldstk_hospital' => 'required',
             'bldstk_event' => 'required',
