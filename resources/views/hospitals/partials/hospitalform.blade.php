@@ -35,8 +35,7 @@
     </label>
     <div class="mt-1">
         <textarea id="hsptl_desc" name="hsptl_desc" rows="3"
-            class="block w-full mt-1 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-            placeholder="This is the best seablood hospital around colombo area."></textarea>
+            class="block w-full mt-1 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Test"></textarea>
     </div>
     <p class="mt-2 text-sm text-gray-500">
         Brief description for your hospital. URLs are hyperlinked.

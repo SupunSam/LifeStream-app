@@ -35,5 +35,15 @@ class UserSeeder extends Seeder
         $donorrole = Role::create(['name' => 'Donor']);
         $donorrole->givePermissionTo('bloodstock-list', 'bloodstock-create', 'bloodstock-edit', 'bloodstock-delete');
         $donoruser->assignRole([$donorrole->id]);
+
+        // Visiter User
+        $donoruser = User::create([
+            'name' => 'Visiter',
+            'email' => 'visiter@lifestream.net',
+            'password' => bcrypt('12345678')
+        ]);
+        $donorrole = Role::create(['name' => 'Visiter']);
+        $donorrole->givePermissionTo('bloodstock-list', 'bloodstock-create', 'bloodstock-edit', 'bloodstock-delete');
+        $donoruser->assignRole([$donorrole->id]);
     }
 }

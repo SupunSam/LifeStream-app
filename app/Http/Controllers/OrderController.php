@@ -110,8 +110,9 @@ class OrderController extends Controller
         $data = Order::where('user_id', $owner)->first();
 
         $orders = Order::where('user_id', $owner)->orderBy('created_at', 'desc')->paginate(5);
-
-        $hospital = Hospital::where('id', $data->hospital_id)->first();
+        // dd($data);
+        // $hospital = Hospital::where('id', $data->hospital_id)->first();
+        $hospital = 1;
 
         return view('users.myorders', compact('orders', 'hospital'));
     }

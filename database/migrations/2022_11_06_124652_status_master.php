@@ -13,14 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('events', function (Blueprint $table) {
+        Schema::create('status_master', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('hospital_id')->constrained();
             $table->string('name');
-            $table->string('location');
-            $table->date('date');
-            $table->integer('attendance');
-            $table->integer('status')->default('2');
             $table->timestamps();
         });
     }
@@ -32,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('events');
+        //
     }
 };

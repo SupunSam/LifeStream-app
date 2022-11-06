@@ -25,7 +25,7 @@ class BloodStockSeeder extends Seeder
         BloodStock::create([
             'hospital_id' => '2',
             'user_id' => '1',
-            'blood_type_id' => '1',
+            'blood_type_id' => '2',
             'event_id' => '1',
             'source' => 'Donor',
             'count' => '350',
@@ -33,7 +33,7 @@ class BloodStockSeeder extends Seeder
         BloodStock::create([
             'hospital_id' => '2',
             'user_id' => '1',
-            'blood_type_id' => '1',
+            'blood_type_id' => '3',
             'event_id' => '1',
             'source' => 'Donor',
             'count' => '450',
@@ -41,7 +41,7 @@ class BloodStockSeeder extends Seeder
         BloodStock::create([
             'hospital_id' => '2',
             'user_id' => '1',
-            'blood_type_id' => '1',
+            'blood_type_id' => '4',
             'event_id' => '1',
             'source' => 'Donor',
             'count' => '650',
@@ -49,7 +49,7 @@ class BloodStockSeeder extends Seeder
         BloodStock::create([
             'hospital_id' => '2',
             'user_id' => '1',
-            'blood_type_id' => '1',
+            'blood_type_id' => '5',
             'event_id' => '1',
             'source' => 'Donor',
             'count' => '450',
@@ -57,7 +57,7 @@ class BloodStockSeeder extends Seeder
         BloodStock::create([
             'hospital_id' => '2',
             'user_id' => '1',
-            'blood_type_id' => '1',
+            'blood_type_id' => '6',
             'event_id' => '1',
             'source' => 'Donor',
             'count' => '150',
@@ -65,7 +65,7 @@ class BloodStockSeeder extends Seeder
         BloodStock::create([
             'hospital_id' => '2',
             'user_id' => '1',
-            'blood_type_id' => '1',
+            'blood_type_id' => '7',
             'event_id' => '1',
             'source' => 'Donor',
             'count' => '250',
@@ -73,7 +73,7 @@ class BloodStockSeeder extends Seeder
         BloodStock::create([
             'hospital_id' => '2',
             'user_id' => '1',
-            'blood_type_id' => '1',
+            'blood_type_id' => '8',
             'event_id' => '1',
             'source' => 'Donor',
             'count' => '350',
@@ -89,7 +89,7 @@ class BloodStockSeeder extends Seeder
         BloodStock::create([
             'hospital_id' => '4',
             'user_id' => '1',
-            'blood_type_id' => '1',
+            'blood_type_id' => '2',
             'event_id' => '1',
             'source' => 'Event',
             'count' => '850',
@@ -97,7 +97,7 @@ class BloodStockSeeder extends Seeder
         BloodStock::create([
             'hospital_id' => '4',
             'user_id' => '1',
-            'blood_type_id' => '1',
+            'blood_type_id' => '3',
             'event_id' => '1',
             'source' => 'Event',
             'count' => '950',
@@ -105,7 +105,7 @@ class BloodStockSeeder extends Seeder
         BloodStock::create([
             'hospital_id' => '4',
             'user_id' => '1',
-            'blood_type_id' => '1',
+            'blood_type_id' => '4',
             'event_id' => '1',
             'source' => 'Event',
             'count' => '100',
@@ -113,7 +113,7 @@ class BloodStockSeeder extends Seeder
         BloodStock::create([
             'hospital_id' => '4',
             'user_id' => '1',
-            'blood_type_id' => '1',
+            'blood_type_id' => '5',
             'event_id' => '1',
             'source' => 'Event',
             'count' => '200',
@@ -121,7 +121,7 @@ class BloodStockSeeder extends Seeder
         BloodStock::create([
             'hospital_id' => '4',
             'user_id' => '1',
-            'blood_type_id' => '1',
+            'blood_type_id' => '6',
             'event_id' => '1',
             'source' => 'Event',
             'count' => '300',
@@ -129,7 +129,7 @@ class BloodStockSeeder extends Seeder
         BloodStock::create([
             'hospital_id' => '4',
             'user_id' => '1',
-            'blood_type_id' => '1',
+            'blood_type_id' => '7',
             'event_id' => '1',
             'source' => 'Event',
             'count' => '400',
@@ -137,7 +137,7 @@ class BloodStockSeeder extends Seeder
         BloodStock::create([
             'hospital_id' => '4',
             'user_id' => '1',
-            'blood_type_id' => '1',
+            'blood_type_id' => '8',
             'event_id' => '1',
             'source' => 'Event',
             'count' => '500',
@@ -153,7 +153,7 @@ class BloodStockSeeder extends Seeder
         BloodStock::create([
             'hospital_id' => '3',
             'user_id' => '1',
-            'blood_type_id' => '1',
+            'blood_type_id' => '2',
             'event_id' => '1',
             'source' => '1 person can served',
             'count' => '700',
@@ -161,7 +161,7 @@ class BloodStockSeeder extends Seeder
         BloodStock::create([
             'hospital_id' => '3',
             'user_id' => '1',
-            'blood_type_id' => '1',
+            'blood_type_id' => '3',
             'event_id' => '1',
             'source' => '1 person can served',
             'count' => '800',
@@ -169,7 +169,7 @@ class BloodStockSeeder extends Seeder
         BloodStock::create([
             'hospital_id' => '3',
             'user_id' => '1',
-            'blood_type_id' => '1',
+            'blood_type_id' => '4',
             'event_id' => '1',
             'source' => '1 person can served',
             'count' => '900',
@@ -177,7 +177,7 @@ class BloodStockSeeder extends Seeder
         BloodStock::create([
             'hospital_id' => '3',
             'user_id' => '1',
-            'blood_type_id' => '1',
+            'blood_type_id' => '5',
             'event_id' => '1',
             'source' => '1 person can served',
             'count' => '195',
@@ -185,7 +185,7 @@ class BloodStockSeeder extends Seeder
         BloodStock::create([
             'hospital_id' => '3',
             'user_id' => '1',
-            'blood_type_id' => '1',
+            'blood_type_id' => '6',
             'event_id' => '1',
             'source' => '1 person can served',
             'count' => '480',
@@ -193,7 +193,7 @@ class BloodStockSeeder extends Seeder
         BloodStock::create([
             'hospital_id' => '3',
             'user_id' => '1',
-            'blood_type_id' => '1',
+            'blood_type_id' => '7',
             'event_id' => '1',
             'source' => '1 person can served',
             'count' => '670',
@@ -201,7 +201,7 @@ class BloodStockSeeder extends Seeder
         BloodStock::create([
             'hospital_id' => '3',
             'user_id' => '1',
-            'blood_type_id' => '1',
+            'blood_type_id' => '8',
             'event_id' => '1',
             'source' => '1 person can served',
             'count' => '490',
@@ -217,7 +217,7 @@ class BloodStockSeeder extends Seeder
         BloodStock::create([
             'hospital_id' => '5',
             'user_id' => '1',
-            'blood_type_id' => '1',
+            'blood_type_id' => '2',
             'event_id' => '1',
             'source' => '1 person can served',
             'count' => '340',
@@ -225,7 +225,7 @@ class BloodStockSeeder extends Seeder
         BloodStock::create([
             'hospital_id' => '5',
             'user_id' => '1',
-            'blood_type_id' => '1',
+            'blood_type_id' => '3',
             'event_id' => '1',
             'source' => '1 person can served',
             'count' => '180',
@@ -233,7 +233,7 @@ class BloodStockSeeder extends Seeder
         BloodStock::create([
             'hospital_id' => '5',
             'user_id' => '1',
-            'blood_type_id' => '1',
+            'blood_type_id' => '4',
             'event_id' => '1',
             'source' => '1 person can served',
             'count' => '940',
@@ -241,7 +241,7 @@ class BloodStockSeeder extends Seeder
         BloodStock::create([
             'hospital_id' => '5',
             'user_id' => '1',
-            'blood_type_id' => '1',
+            'blood_type_id' => '5',
             'event_id' => '1',
             'source' => '1 person can served',
             'count' => '480',
@@ -249,7 +249,7 @@ class BloodStockSeeder extends Seeder
         BloodStock::create([
             'hospital_id' => '5',
             'user_id' => '1',
-            'blood_type_id' => '1',
+            'blood_type_id' => '6',
             'event_id' => '1',
             'source' => '1 person can served',
             'count' => '490',
@@ -257,7 +257,7 @@ class BloodStockSeeder extends Seeder
         BloodStock::create([
             'hospital_id' => '5',
             'user_id' => '1',
-            'blood_type_id' => '1',
+            'blood_type_id' => '7',
             'event_id' => '1',
             'source' => '1 person can served',
             'count' => '370',
@@ -265,7 +265,7 @@ class BloodStockSeeder extends Seeder
         BloodStock::create([
             'hospital_id' => '5',
             'user_id' => '1',
-            'blood_type_id' => '1',
+            'blood_type_id' => '8',
             'event_id' => '1',
             'source' => '1 person can served',
             'count' => '910',
@@ -281,7 +281,7 @@ class BloodStockSeeder extends Seeder
         BloodStock::create([
             'hospital_id' => '1',
             'user_id' => '1',
-            'blood_type_id' => '1',
+            'blood_type_id' => '2',
             'event_id' => '1',
             'source' => '1 person can served',
             'count' => '750',
@@ -289,7 +289,7 @@ class BloodStockSeeder extends Seeder
         BloodStock::create([
             'hospital_id' => '1',
             'user_id' => '1',
-            'blood_type_id' => '1',
+            'blood_type_id' => '3',
             'event_id' => '1',
             'source' => '1 person can served',
             'count' => '480',
@@ -297,7 +297,7 @@ class BloodStockSeeder extends Seeder
         BloodStock::create([
             'hospital_id' => '1',
             'user_id' => '1',
-            'blood_type_id' => '1',
+            'blood_type_id' => '4',
             'event_id' => '1',
             'source' => '1 person can served',
             'count' => '670',
@@ -305,7 +305,7 @@ class BloodStockSeeder extends Seeder
         BloodStock::create([
             'hospital_id' => '1',
             'user_id' => '1',
-            'blood_type_id' => '1',
+            'blood_type_id' => '5',
             'event_id' => '1',
             'source' => 'Donor',
             'count' => '490',
@@ -313,7 +313,7 @@ class BloodStockSeeder extends Seeder
         BloodStock::create([
             'hospital_id' => '1',
             'user_id' => '1',
-            'blood_type_id' => '1',
+            'blood_type_id' => '6',
             'event_id' => '1',
             'source' => 'Donor',
             'count' => '760',
@@ -321,7 +321,7 @@ class BloodStockSeeder extends Seeder
         BloodStock::create([
             'hospital_id' => '1',
             'user_id' => '1',
-            'blood_type_id' => '1',
+            'blood_type_id' => '7',
             'event_id' => '1',
             'source' => '1 person can served',
             'count' => '340',
@@ -329,7 +329,7 @@ class BloodStockSeeder extends Seeder
         BloodStock::create([
             'hospital_id' => '1',
             'user_id' => '1',
-            'blood_type_id' => '1',
+            'blood_type_id' => '8',
             'event_id' => '1',
             'source' => '1 person can served',
             'count' => '180',

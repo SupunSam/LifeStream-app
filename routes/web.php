@@ -4,12 +4,13 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
-
 use App\Http\Controllers\BloodStockController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\UserRequestController;
+use App\Http\Controllers\HospitalController;
+
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\HospitalController;
 use App\Http\Controllers\Admin\AdminController;
 
 /*
@@ -74,6 +75,12 @@ Route::group(['middleware' => 'auth'], function () {
     // Event Routes
     Route::resource('events', EventController::class);
 
+    // UserRequest Routes
+    Route::resource('userrequests', UserRequestController::class);
+
+    Route::get('/MyRequests', [UserRequestController::class, 'myrequests'])
+        ->name('MyRequests');
+
     Route::get('cart', [OrderController::class, 'cart'])->name('cart');
     Route::get('add-to-cart/{id}', [OrderController::class, 'addToCart'])->name('add.to.cart');
     Route::patch('update-cart', [OrderController::class, 'update'])->name('update.cart');
@@ -89,10 +96,12 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'auth'], fu
     // App Management
     Route::get('dashboard', [AdminController::class, 'dashboard'])
         ->name('dashboard');
-    Route::get('hsptl', [AdminController::class, 'hsptlmanage'])
-        ->name('hsptl.manage');
+    Route::get('hsptls', [AdminController::class, 'hsptlsmanage'])
+        ->name('hsptls.manage');
     Route::get('events', [AdminController::class, 'eventsmanage'])
         ->name('events.manage');
+    Route::get('requests', [AdminController::class, 'userrequestsmanage'])
+        ->name('requests.manage');
     Route::get('blood', [AdminController::class, 'bloodmanage'])
         ->name('blood.manage');
 

@@ -117,9 +117,10 @@ class HospitalController extends Controller
     public function show($id)
     {
         $hospital = Hospital::find($id);
-        $bloodstocks = BloodStock::where('hospital_id', $id)->orderBy('created_at', 'desc')->get();
 
-        // dd($bloodstocks);
+        $bloodstocks = BloodStock::where('hospital_id', $id)->groupBy(['blood_type_id'])
+            ->selectRaw('sum(count) as count, blood_type_id')
+            ->get();
 
         return view('hospitals.show', compact('hospital', 'bloodstocks'));
     }

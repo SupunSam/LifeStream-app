@@ -22,21 +22,22 @@
             <a href="{{ route('bloodstocks.create', $hospital->id) }}" class="btn btn-success" role="button">Add BloodStocks</a>
         @endcan
 
-        <div class="grid grid-cols-1 gap-6 py-6 xl:grid-cols-5 sm:gap-6">
-
+        <div class="flex flex-wrap mt-6">
             @foreach ($bloodstocks as $bloodstock)
-                <div class="shadow-xl card w-66 bg-base-100">
-                    <div class="items-center text-center card-body">
-                        <h2 class="card-title">{{ $bloodstock->bldtyp->bloodtype_name }}</h2>
-                        @include('hospitals.partials.bloodbaglogo', ['bldtype' => $bloodstock->bldtyp->bloodtype_code])
-                        <h2 class="card-title collapsed">{{ $bloodstock->count }}</h2>
-                        <div class="justify-end card-actions">
-                            <a href="{{ route('add.to.cart', [$bloodstock->id, $hospital->id]) }}" class="btn btn-error">Add to Cart</a>
+                <div class="mb-6 mr-2 shadow stats">
+                    <div class="w-48 stat">
+                        <div class="stat-figure text-secondary">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-8 h-8 stroke-current">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                            </svg>
                         </div>
+                        <div class="stat-title">{{ $bloodstock->bldtyp->bloodtype_name }}</div>
+                        <div class="stat-value">{{ $bloodstock->count }}l</div>
+                        {{-- <div class="mt-2 stat-desc"><a href="{{ route('add.to.cart', [$bloodstock->id, $hospital->id]) }}" class="btn btn-sm btn-error">Request</a></div> --}}
                     </div>
                 </div>
             @endforeach
-
         </div>
     @endsection
 

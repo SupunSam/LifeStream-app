@@ -8,10 +8,8 @@
 
     @section('content')
         @hasrole('Owner')
-            <a href="{{ route('hospital.create') }}" class="btn btn-success" role="button">Create New Hospital</a>
+            {{-- <a href="{{ route('hospital.create') }}" class="btn btn-success" role="button">Create New Hospital</a> --}}
         @endhasrole
-
-
 
         <div class="grid grid-cols-1 gap-6 my-4 xl:grid-cols-5 sm:gap-6">
 

@@ -23,6 +23,11 @@
                             {{ __('My Hospital') }}
                         </x-nav-link>
                     @endhasrole
+                    @hasrole(['Owner', 'Donor'])
+                        <x-nav-link :href="route('MyRequests')" :active="request()->routeIs('MyRequests')">
+                            {{ __('My Requests') }}
+                        </x-nav-link>
+                    @endhasrole
                     <x-nav-link :href="route('about')" :active="request()->routeIs('about')">
                         {{ __('About Us') }}
                     </x-nav-link>

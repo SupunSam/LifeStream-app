@@ -7,6 +7,7 @@ use App\Models\BloodStock;
 use App\Models\BloodType;
 use App\Models\Event;
 use App\Models\Hospital;
+use App\Models\UserRequest;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -17,19 +18,25 @@ class AdminController extends Controller
         return view('admin.dashboard');
     }
 
-    public function hsptlmanage(Request $request)
+    public function hsptlsmanage()
     {
         $hospitals = Hospital::orderBy('created_at', 'desc')->paginate(5);
-        return view('admin.hsptl.manage')->with('hospitals', $hospitals);
+        return view('admin.hsptls.manage')->with('hospitals', $hospitals);
     }
 
-    public function eventsmanage(Request $request)
+    public function eventsmanage()
     {
         $events = Event::orderBy('created_at', 'desc')->paginate(5);
         return view('admin.events.manage')->with('events', $events);
     }
 
-    public function bloodmanage(Request $request)
+    public function userrequestsmanage()
+    {
+        $userrequests = UserRequest::orderBy('created_at', 'desc')->paginate(5);
+        return view('admin.userrequests.manage')->with('userrequests', $userrequests);
+    }
+
+    public function bloodmanage()
     {
         $bloodstocks = BloodStock::orderBy('created_at', 'desc')->paginate(5);
         $bloodtypes = BloodType::all();
