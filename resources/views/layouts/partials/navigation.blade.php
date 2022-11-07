@@ -38,7 +38,7 @@
                         {{ __('Contact') }}
                     </x-nav-link>
                 </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                {{-- <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <form action="/search" method="POST" role="search" class="flex justify-center my-4 overflow-hidden bg-white border-2 rounded-xl">
                         @csrf
                         <input type="search" placeholder="Search Blood..." name="searchq"
@@ -50,7 +50,7 @@
                             </svg>
                         </button>
                     </form>
-                </div>
+                </div> --}}
             </div>
 
             @auth

@@ -7,6 +7,8 @@ use App\Models\Order;
 use App\Models\BloodStock;
 use App\Models\BloodType;
 use App\Models\Hospital;
+use App\Exports\HospitalsExport;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Traits\UploadTrait;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -159,5 +161,10 @@ class HospitalController extends Controller
     public function destroy($id)
     {
         Hospital::find($id)->delete();
+    }
+
+    public function export()
+    {
+        return Excel::download(new HospitalsExport, 'Hospital_Report.xlsx');
     }
 }

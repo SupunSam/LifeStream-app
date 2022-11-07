@@ -9,6 +9,7 @@
     @section('content')
         <a class="btn btn-primary" href="{{ route('admin.dashboard') }}">Go Back</a>
         <a href="{{ route('events.create') }}" class="btn btn-success" role="button">Create New Event</a>
+        <a href="{{ route('admin.events.export') }}" class="btn btn-info" role="button">Generate Report</a>
 
         <div class="my-6 overflow-x-auto">
             <table class="table w-full border-b border-gray-200 shadow">

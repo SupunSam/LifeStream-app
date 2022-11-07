@@ -6,6 +6,8 @@ use App\Models\BloodStock;
 use App\Models\BloodType;
 use App\Models\Hospital;
 use App\Models\Event;
+use App\Exports\BloodStocksExport;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Traits\UploadTrait;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -97,5 +99,10 @@ class BloodStockController extends Controller
 
         return redirect()->route('bloodstocks.index')
             ->with('success', 'BloodStock deleted successfully');
+    }
+
+    public function export()
+    {
+        return Excel::download(new BloodStocksExport, 'Bloodstock_Report.xlsx');
     }
 }

@@ -109,6 +109,11 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'auth'], fu
     Route::get('blood', [AdminController::class, 'bloodmanage'])
         ->name('blood.manage');
 
+    //Report Generation Routes
+    Route::get('bloodstocks/export/', [BloodStockController::class, 'export'])->name('bloodstocks.export');
+    Route::get('hospitals/export/', [HospitalController::class, 'export'])->name('hospitals.export');
+    Route::get('events/export/', [EventController::class, 'export'])->name('events.export');
+
     // Roles and Permissions Routes
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);

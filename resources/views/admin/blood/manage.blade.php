@@ -13,6 +13,7 @@
     @section('content')
         <a class="btn btn-primary" href="{{ route('admin.dashboard') }}">Go Back</a>
         <a href="{{ route('bloodstocks.create') }}" class="btn btn-success" role="button">Add New BloodStock</a>
+        <a href="{{ route('admin.bloodstocks.export') }}" class="btn btn-info" role="button">Generate Report</a>
 
         <div class="flex flex-wrap mt-6">
             @foreach ($allbloodstocks as $allbloodstock)
