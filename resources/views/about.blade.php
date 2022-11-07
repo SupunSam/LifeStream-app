@@ -48,24 +48,25 @@
         <!-- End About Area -->
 
         <!-- Start Our Mission Area -->
-        <section class="pt-0 our-mission-area ptb-100">
+        <section class="mt-12 our-mission-area ptb-100">
             <div class="grid grid-cols-2 gap-4">
-                <div class="our-mission-content">
+                <div class="about-content">
                     <h2>Resource persons</h2>
                     <ul>
-                        <li><i class="flaticon-check-mark"></i> Dr. Senarath Jayasekara (MBBS,DTM, MD), Senior Consultant Transfusion Physician</li>
-                        <li><i class="flaticon-check-mark"></i>Dr. Jeewaka Galhenage (MBBS, DTM, MD), Consultant Transfusion Physician</li>
-                        <li><i class="flaticon-check-mark"></i> Dr. Indika de Alwis (MBBS, DTM, MD), Consultant Transfusion Physician</li>
-                        <li><i class="flaticon-check-mark"></i> Dr. Pavitha Arewatte (MBBS, DTM, MD), Consultant Transfusion Physician </li>
-                        <li><i class="flaticon-check-mark"></i> Dr. Anoja Herath (MD, DTM, MD Tr.Med), Consultant Transfusion Physician</li>
-                        <li><i class="flaticon-check-mark"></i>Dr. Kumudu Kuruppu (MD, DTM, MD Tr.Med), Act. Consultant Transfusion Physician</li>
-                        <li><i class="flaticon-check-mark"></i> Dr. Nandika Somasiri (MBBS, DTM), Senior Medical Officer</li>
-                        <li><i class="flaticon-check-mark"></i>Dr. Senal Rupasinghe (MBBS, DTM), Medical Officer In-charge, Donor Section</li>
-                        <li><i class="flaticon-check-mark"></i> Dr. Rajitha Siriwardena (MBBS), Medical Officer In-charge, HLA Laboratory</li>
-                        <li><i class="flaticon-check-mark"></i> Dr. Dilani Jayalath (MBBS, DTM) </li>
-                        <li><i class="flaticon-check-mark"></i> Dr. Narmada Manawasinghe (MBBS, DTM), Medical Officer In-charge, Teaching & Training Unit</li>
-                        <li><i class="flaticon-check-mark"></i>Dr. Chavithri Siriwardena (MBBS, DTM), Medical Officer Planning </li>
-                        <li><i class="flaticon-check-mark"></i>Dr. Ruwani Wijesiri (MBBS, DTM)</li>
+                        <li><i class="flaticon-check-mark"></i>&nbsp;&nbsp;Dr. Senarath Jayasekara (MBBS,DTM, MD), Senior Consultant Transfusion Physician</li>
+                        <li><i class="flaticon-check-mark"></i>&nbsp;&nbsp;Dr. Jeewaka Galhenage (MBBS, DTM, MD), Consultant Transfusion Physician</li>
+                        <li><i class="flaticon-check-mark"></i>&nbsp;&nbsp;Dr. Indika de Alwis (MBBS, DTM, MD), Consultant Transfusion Physician</li>
+                        <li><i class="flaticon-check-mark"></i>&nbsp;&nbsp;Dr. Pavitha Arewatte (MBBS, DTM, MD), Consultant Transfusion Physician </li>
+                        <li><i class="flaticon-check-mark"></i>&nbsp;&nbsp;Dr. Anoja Herath (MD, DTM, MD Tr.Med), Consultant Transfusion Physician</li>
+                        <li><i class="flaticon-check-mark"></i>&nbsp;&nbsp;Dr. Kumudu Kuruppu (MD, DTM, MD Tr.Med), Act. Consultant Transfusion Physician</li>
+                        <li><i class="flaticon-check-mark"></i>&nbsp;&nbsp;Dr. Nandika Somasiri (MBBS, DTM), Senior Medical Officer</li>
+                        <li><i class="flaticon-check-mark"></i>&nbsp;&nbsp;Dr. Senal Rupasinghe (MBBS, DTM), Medical Officer In-charge, Donor Section</li>
+                        <li><i class="flaticon-check-mark"></i>&nbsp;&nbsp;Dr. Rajitha Siriwardena (MBBS), Medical Officer In-charge, HLA Laboratory</li>
+                        <li><i class="flaticon-check-mark"></i>&nbsp;&nbsp;Dr. Dilani Jayalath (MBBS, DTM) </li>
+                        <li><i class="flaticon-check-mark"></i>&nbsp;&nbsp;Dr. Narmada Manawasinghe (MBBS, DTM), Medical Officer In-charge, Teaching & Training Unit
+                        </li>
+                        <li><i class="flaticon-check-mark"></i>&nbsp;&nbsp;Dr. Chavithri Siriwardena (MBBS, DTM), Medical Officer Planning </li>
+                        <li><i class="flaticon-check-mark"></i>&nbsp;&nbsp;Dr. Ruwani Wijesiri (MBBS, DTM)</li>
                     </ul>
                 </div>
                 <div class="our-mission-image">

@@ -216,7 +216,7 @@ About Area CSS
 
 .about-content p {
     margin-top: 10px;
-    margin-bottom: 0;
+    margin-bottom: 10px;
 }
 
 .about-content ul {
