@@ -13,58 +13,14 @@
 
                 <div class="px-4 py-5 bg-white shadow sm:rounded-md sm:overflow-hidden sm:p-6">
 
-                    <form action="#" method="" enctype="multipart/form-data">
+                    <form action="{{ route('userrequests.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        <div>
-                            <div class="grid grid-cols-6 gap-6">
-                                {{-- Contact Name --}}
-                                <div class="col-span-6 sm:col-span-3">
-                                    <label for="contact_name" class="block text-sm font-medium text-gray-700">Name</label>
-                                    <input type="text" name="contact_name" id="contact_name"
-                                        class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                                </div>
-
-                                {{-- Contact Email --}}
-                                <div class="col-span-6">
-                                    <label for="contact_email" class="block text-sm font-medium text-gray-700">Email</label>
-                                    <input type="text" name="contact_email" id="contact_email"
-                                        class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                                </div>
-                                {{-- Contact City --}}
-                                <div class="col-span-6 sm:col-span-6 lg:col-span-2">
-                                    <label for="contact_city" class="block text-sm font-medium text-gray-700">City</label>
-                                    <input type="text" name="contact_city" id="contact_city"
-                                        class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                                </div>
-                                {{-- Contact Mobile --}}
-                                <div class="col-span-6 sm:col-span-3 lg:col-span-2">
-                                    <label for="contact_charge" class="block text-sm font-medium text-gray-700">Mobile</label>
-                                    <input type="text" name="contact_charge" id="contact_charge"
-                                        class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                                </div>
-
-                            </div>
-                        </div>
-
-                        {{-- Contact Description --}}
-                        <div class="mt-6">
-                            <label for="contact_desc" class="block text-sm font-medium text-gray-700">
-                                Description
-                            </label>
-                            <div class="mt-1">
-                                <textarea id="contact_desc" name="contact_desc" rows="3"
-                                    class="block w-full mt-1 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Type the details"></textarea>
-                            </div>
-                        </div>
-
-                        {{-- Form Submit --}}
-                        <div class="px-4 py-3 mt-6 text-right bg-gray-50 sm:px-6 rounded-box">
-                            <button type="submit"
-                                class="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                                Submit
-                            </button>
-                        </div>
-
+                        {{-- Import Hospital Form --}}
+                        @if (auth()->check())
+                            @include('userrequests.partials.userrequestform', ['user' => Auth::user()->id])
+                        @else
+                            @include('userrequests.partials.userrequestform', ['user' => 4])
+                        @endif
                     </form>
 
                 </div>
@@ -87,10 +43,18 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
                     <div class="w-40 ml-4 font-semibold tracking-wide text-md">
-                        Chatham Street, Colombo 01,
+                        National&nbsp;Blood&nbsp;Center,
                     </div>
+                </div>
+                <div class="flex items-center text-gray-600 dark:text-gray-400">
+                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" viewBox="0 0 24 24"
+                        class="w-8 h-8 text-gray-500">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="0"
+                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="0" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
                     <div class="w-40 ml-4 font-semibold tracking-wide text-md">
-                        Sri Lanka
+                        No. 555/5D, <br>Elvitigala Mawatha, <br>Narahenpita, <br>Colombo 05, <br>Sri Lanka.
                     </div>
                 </div>
 
