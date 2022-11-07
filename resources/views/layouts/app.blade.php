@@ -41,8 +41,7 @@
         <!-- Body Section -->
         <main class="flex-grow py-12 bg-gray-200">
             <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-                {{-- <div class="p-6 overflow-hidden bg-white shadow-sm sm:rounded-lg"> --}}
-                <div class="p-6 overflow-hidden bg-transparent">
+                <div class="overflow-hidden bg-transparent">
                     <!-- Alerts -->
                     <x-alerts class="mb-4" :errors="$errors" />
 

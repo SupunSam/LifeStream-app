@@ -99,7 +99,7 @@
                 </div>
             </div>
 
-            <div class="mt-4 shadow-lg card compact side bg-base-100">
+            {{-- <div class="mt-4 shadow-lg card compact side bg-base-100">
                 <div class="flex-row items-center space-x-4 card-body">
                     <div class="flex-1">
                         <h2 class="font-bold card-title text-info">{{ $orders }}</h2>
@@ -113,7 +113,7 @@
                         </button>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             <div class="mt-4 shadow-lg card compact side bg-base-100">
                 <div class="flex-row items-center space-x-4 card-body">

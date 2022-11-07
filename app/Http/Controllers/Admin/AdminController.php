@@ -39,7 +39,10 @@ class AdminController extends Controller
     public function bloodmanage()
     {
         $bloodstocks = BloodStock::orderBy('created_at', 'desc')->paginate(5);
+        $allbloodstocks = BloodStock::groupBy(['blood_type_id'])
+            ->selectRaw('sum(count) as count, blood_type_id')
+            ->get();
         $bloodtypes = BloodType::all();
-        return view('admin.blood.manage')->with('bloodstocks', $bloodstocks)->with('bloodtypes', $bloodtypes);
+        return view('admin.blood.manage')->with('bloodstocks', $bloodstocks)->with('bloodtypes', $bloodtypes)->with('allbloodstocks', $allbloodstocks);
     }
 }

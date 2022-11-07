@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Order;
 use App\Models\BloodStock;
+use App\Models\Event;
 use App\Models\Hospital;
 use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
@@ -17,7 +18,8 @@ class HomeController extends Controller
     public function home()
     {
         $hospitals = Hospital::orderBy('created_at', 'desc')->paginate(3);
-        return view('index')->with('hospitals', $hospitals);
+        $events = Event::get();
+        return view('index')->with('hospitals', $hospitals)->with('events', $events);
     }
 
     public function search(Request $request)

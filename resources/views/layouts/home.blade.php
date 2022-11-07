@@ -1,6 +1,7 @@
 {{-- Home Content --}}
 @section('pagecdns')
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    <link href="{{ URL::asset('css/homepage.css') }}" rel="stylesheet" type="text/css">
 @endsection
 
 <div class="h-auto sliderAx">
@@ -70,15 +71,87 @@
     </div>
 </div>
 
+{{-- Events --}}
+<div class="grid grid-cols-1 gap-6 mt-6 xl:grid-cols-3 sm:gap-6">
+    @foreach ($events as $event)
+        <div class="shadow-xl card w-96 bg-base-100">
+            <figure><img src="https://placeimg.com/400/225/arch" alt="Shoes" /></figure>
+            <div class="card-body">
+                <h2 class="card-title">{{ $event->name }}</h2>
+                <p>{{ $event->date }}</p>
+                <div class="justify-end card-actions">
+                    <button class="btn btn-primary">Learn More</button>
+                </div>
+            </div>
+        </div>
+    @endforeach
+</div>
 
-{{-- Ordering Steps --}}
-<div class="col-span-1 p-8 mt-6 shadow-lg xl:col-span-3 card bg-base-100">
-    <ul class="w-full steps">
-        <li class="step step-primary">Register</li>
-        <li class="step step-primary">Choose Required Blood</li>
-        <li class="step">Place Blood Request</li>
-        <li class="step">Save a Life</li>
-    </ul>
+{{-- Start Partner Area --}}
+<div class="col-span-1 p-6 mt-6 shadow-lg xl:col-span-3 card bg-base-100">
+    <section class="partner-area ptb-100 bg-f4f9fd">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="my-4 text-4xl font-bold card-title">Our Partners</h2>
+            </div>
+
+            <div class="customers-partner-list">
+                <div class="partner-item">
+                    <a href="#">
+                        <img src="{{ asset('storage/homepage/partner/1.png') }}" alt="image">
+                    </a>
+                </div>
+
+                <div class="partner-item">
+                    <a href="#">
+                        <img src="{{ asset('storage/homepage/partner/2.png') }}" alt="image">
+                    </a>
+                </div>
+
+                <div class="partner-item">
+                    <a href="#">
+                        <img src="{{ asset('storage/homepage/partner/3.png') }}" alt="image">
+                    </a>
+                </div>
+
+                <div class="partner-item">
+                    <a href="#">
+                        <img src="{{ asset('storage/homepage/partner/4.png') }}" alt="image">
+                    </a>
+                </div>
+
+                <div class="partner-item">
+                    <a href="#">
+                        <img src="{{ asset('storage/homepage/partner/5.png') }}" alt="image">
+                    </a>
+                </div>
+
+                <div class="partner-item">
+                    <a href="#">
+                        <img src="{{ asset('storage/homepage/partner/6.png') }}" alt="image">
+                    </a>
+                </div>
+
+                <div class="partner-item">
+                    <a href="#">
+                        <img src="{{ asset('storage/homepage/partner/7.png') }}" alt="image">
+                    </a>
+                </div>
+
+                <div class="partner-item">
+                    <a href="#">
+                        <img src="{{ asset('storage/homepage/partner/8.png') }}" alt="image">
+                    </a>
+                </div>
+
+                <div class="partner-item">
+                    <a href="#">
+                        <img src="{{ asset('storage/homepage/partner/9.png') }}" alt="image">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
 
 @section('scripts')

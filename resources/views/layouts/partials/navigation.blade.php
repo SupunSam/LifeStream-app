@@ -28,6 +28,9 @@
                             {{ __('My Requests') }}
                         </x-nav-link>
                     @endhasrole
+                    <x-nav-link :href="route('services')" :active="request()->routeIs('services')">
+                        {{ __('Services') }}
+                    </x-nav-link>
                     <x-nav-link :href="route('about')" :active="request()->routeIs('about')">
                         {{ __('About Us') }}
                     </x-nav-link>
@@ -80,9 +83,9 @@
                                 {{ __('Profile') }}
                             </x-dropdown-link>
 
-                            <x-dropdown-link :href="route('orders')">
+                            {{-- <x-dropdown-link :href="route('orders')">
                                 {{ __('Orders') }}
-                            </x-dropdown-link>
+                            </x-dropdown-link> --}}
 
                             <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}">

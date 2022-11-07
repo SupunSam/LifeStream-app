@@ -35,19 +35,5 @@ class EventSeeder extends Seeder
             'date' => '2022-11-03',
             'attendance' => '550',
         ]);
-        Event::create([
-            'hospital_id' => '4',
-            'name' => 'Annual Blood Drive 4',
-            'location' => 'Gampaha',
-            'date' => '2022-11-03',
-            'attendance' => '630',
-        ]);
-        Event::create([
-            'hospital_id' => '5',
-            'name' => 'Annual Blood Drive 5',
-            'location' => 'Negambo',
-            'date' => '2022-11-03',
-            'attendance' => '223',
-        ]);
     }
 }
