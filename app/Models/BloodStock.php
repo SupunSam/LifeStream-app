@@ -11,9 +11,7 @@ class BloodStock extends Model
 
     protected $table = 'blood_stocks';
 
-    protected $fillable = [
-        'bloodstock_group', 'bloodstock_name', 'bloodstock_source', 'bloodstock_count'
-    ];
+    protected $fillable = ['hospital_id', 'user_id', 'blood_type_id', 'event_id', 'source', 'count'];
 
     public function hasManyHospitals(array $hospital)
     {

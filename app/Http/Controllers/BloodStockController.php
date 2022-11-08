@@ -81,10 +81,11 @@ class BloodStockController extends Controller
     public function update(Request $request, BloodStock $bloodstock)
     {
         request()->validate([
-            'bloodstock_group' => 'required|max:255',
-            'bloodstock_name' => 'required|max:255',
-            'bloodstock_source' => 'required|max:255',
-            'bloodstock_count' => 'required'
+            'bldstk_hospital' => 'required',
+            'bldstk_event' => 'required',
+            'bldstk_group' => 'required',
+            'bldstk_source' => 'required|max:255',
+            'bldstk_count' => 'required'
         ]);
 
         $bloodstock->update($request->all());

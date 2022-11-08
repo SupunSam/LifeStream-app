@@ -147,7 +147,7 @@ class BloodStockSeeder extends Seeder
             'user_id' => '1',
             'blood_type_id' => '1',
             'event_id' => '1',
-            'source' => '1 person can served',
+            'source' => 'via Donation camp',
             'count' => '600',
         ]);
         BloodStock::create([
@@ -155,7 +155,7 @@ class BloodStockSeeder extends Seeder
             'user_id' => '1',
             'blood_type_id' => '2',
             'event_id' => '1',
-            'source' => '1 person can served',
+            'source' => 'via Donation camp',
             'count' => '700',
         ]);
         BloodStock::create([
@@ -163,7 +163,7 @@ class BloodStockSeeder extends Seeder
             'user_id' => '1',
             'blood_type_id' => '3',
             'event_id' => '1',
-            'source' => '1 person can served',
+            'source' => 'via Donation camp',
             'count' => '800',
         ]);
         BloodStock::create([
@@ -171,7 +171,7 @@ class BloodStockSeeder extends Seeder
             'user_id' => '1',
             'blood_type_id' => '4',
             'event_id' => '1',
-            'source' => '1 person can served',
+            'source' => 'via Donation camp',
             'count' => '900',
         ]);
         BloodStock::create([
@@ -179,7 +179,7 @@ class BloodStockSeeder extends Seeder
             'user_id' => '1',
             'blood_type_id' => '5',
             'event_id' => '1',
-            'source' => '1 person can served',
+            'source' => 'via Donation camp',
             'count' => '195',
         ]);
         BloodStock::create([
@@ -187,7 +187,7 @@ class BloodStockSeeder extends Seeder
             'user_id' => '1',
             'blood_type_id' => '6',
             'event_id' => '1',
-            'source' => '1 person can served',
+            'source' => 'via Donation camp',
             'count' => '480',
         ]);
         BloodStock::create([
@@ -195,7 +195,7 @@ class BloodStockSeeder extends Seeder
             'user_id' => '1',
             'blood_type_id' => '7',
             'event_id' => '1',
-            'source' => '1 person can served',
+            'source' => 'via Donation camp',
             'count' => '670',
         ]);
         BloodStock::create([
@@ -203,7 +203,7 @@ class BloodStockSeeder extends Seeder
             'user_id' => '1',
             'blood_type_id' => '8',
             'event_id' => '1',
-            'source' => '1 person can served',
+            'source' => 'via Donation camp',
             'count' => '490',
         ]);
         BloodStock::create([
@@ -211,7 +211,7 @@ class BloodStockSeeder extends Seeder
             'user_id' => '1',
             'blood_type_id' => '1',
             'event_id' => '1',
-            'source' => '1 person can served',
+            'source' => 'via Donation camp',
             'count' => '760',
         ]);
         BloodStock::create([
@@ -219,7 +219,7 @@ class BloodStockSeeder extends Seeder
             'user_id' => '1',
             'blood_type_id' => '2',
             'event_id' => '1',
-            'source' => '1 person can served',
+            'source' => 'via Donation camp',
             'count' => '340',
         ]);
         BloodStock::create([
@@ -227,7 +227,7 @@ class BloodStockSeeder extends Seeder
             'user_id' => '1',
             'blood_type_id' => '3',
             'event_id' => '1',
-            'source' => '1 person can served',
+            'source' => 'via Donation camp',
             'count' => '180',
         ]);
         BloodStock::create([
@@ -235,7 +235,7 @@ class BloodStockSeeder extends Seeder
             'user_id' => '1',
             'blood_type_id' => '4',
             'event_id' => '1',
-            'source' => '1 person can served',
+            'source' => 'via Donation camp',
             'count' => '940',
         ]);
         BloodStock::create([
@@ -243,7 +243,7 @@ class BloodStockSeeder extends Seeder
             'user_id' => '1',
             'blood_type_id' => '5',
             'event_id' => '1',
-            'source' => '1 person can served',
+            'source' => 'via Donation camp',
             'count' => '480',
         ]);
         BloodStock::create([
@@ -251,7 +251,7 @@ class BloodStockSeeder extends Seeder
             'user_id' => '1',
             'blood_type_id' => '6',
             'event_id' => '1',
-            'source' => '1 person can served',
+            'source' => 'via Donation camp',
             'count' => '490',
         ]);
         BloodStock::create([
@@ -259,7 +259,7 @@ class BloodStockSeeder extends Seeder
             'user_id' => '1',
             'blood_type_id' => '7',
             'event_id' => '1',
-            'source' => '1 person can served',
+            'source' => 'via Donation camp',
             'count' => '370',
         ]);
         BloodStock::create([
@@ -267,7 +267,7 @@ class BloodStockSeeder extends Seeder
             'user_id' => '1',
             'blood_type_id' => '8',
             'event_id' => '1',
-            'source' => '1 person can served',
+            'source' => 'via Donation camp',
             'count' => '910',
         ]);
         BloodStock::create([
@@ -275,7 +275,7 @@ class BloodStockSeeder extends Seeder
             'user_id' => '1',
             'blood_type_id' => '1',
             'event_id' => '1',
-            'source' => '1 person can served',
+            'source' => 'via Donation camp',
             'count' => '500',
         ]);
         BloodStock::create([
@@ -283,7 +283,7 @@ class BloodStockSeeder extends Seeder
             'user_id' => '1',
             'blood_type_id' => '2',
             'event_id' => '1',
-            'source' => '1 person can served',
+            'source' => 'via Donation camp',
             'count' => '750',
         ]);
         BloodStock::create([
@@ -291,7 +291,7 @@ class BloodStockSeeder extends Seeder
             'user_id' => '1',
             'blood_type_id' => '3',
             'event_id' => '1',
-            'source' => '1 person can served',
+            'source' => 'via Donation camp',
             'count' => '480',
         ]);
         BloodStock::create([
@@ -299,7 +299,7 @@ class BloodStockSeeder extends Seeder
             'user_id' => '1',
             'blood_type_id' => '4',
             'event_id' => '1',
-            'source' => '1 person can served',
+            'source' => 'via Donation camp',
             'count' => '670',
         ]);
         BloodStock::create([
@@ -323,7 +323,7 @@ class BloodStockSeeder extends Seeder
             'user_id' => '1',
             'blood_type_id' => '7',
             'event_id' => '1',
-            'source' => '1 person can served',
+            'source' => 'via Donation camp',
             'count' => '340',
         ]);
         BloodStock::create([
@@ -331,7 +331,7 @@ class BloodStockSeeder extends Seeder
             'user_id' => '1',
             'blood_type_id' => '8',
             'event_id' => '1',
-            'source' => '1 person can served',
+            'source' => 'via Donation camp',
             'count' => '180',
         ]);
     }

@@ -11,10 +11,10 @@
         <div class="flex items-center w-full px-4 py-10 bg-cover card bg-base-200" style="background-image: url(&quot;https://picsum.photos/id/429/1000/300&quot;);">
             <div class="card glass lg:card-side text-neutral-content">
                 <div class="max-w-md card-body">
-                    <h2 class="card-title">{{ $bloodstock->bloodstock_name }}</h2>
-                    <p class="text-xl font-semibold">{{ $bloodstock->bloodstock_group }}</p>
-                    <p class="text-xl font-semibold">{{ $bloodstock->bloodstock_count }}</p>
-                    <p class="text-xl font-semibold">{{ $bloodstock->bloodstock_source }}</p>
+                    <h2 class="card-title">{{ $bloodstock->bldtyp->bloodtype_name }}</h2>
+                    <p class="text-xl font-semibold">{{ $bloodstock->hsptl->hsptl_name }}</p>
+                    <p class="text-xl font-semibold">{{ $bloodstock->count }}</p>
+                    <p class="text-xl font-semibold">{{ $bloodstock->source }}</p>
                     <div class="card-actions">
                         <button class="rounded-full btn glass">Add to Cart</button>
                     </div>

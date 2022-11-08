@@ -24,4 +24,9 @@ class Order extends Model
     {
         return null !== $this->bloodstocks()->whereIn('blood_stock_id', $bloodstock)->first();
     }
+
+    public function hsptl()
+    {
+        return $this->belongsTo(Hospital::class, 'hospital_id', 'id');
+    }
 }

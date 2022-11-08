@@ -20,52 +20,45 @@
                 <thead>
                     <tr class="rounded-lg">
                         <th class="px-5 py-3 text-xs font-semibold tracking-wider text-left text-gray-600 uppercase bg-gray-200 border-b-2 border-gray-400">
-                            Blood
+                            Hospital
                         </th>
                         <th class="px-5 py-3 text-xs font-semibold tracking-wider text-left text-gray-600 uppercase bg-gray-200 border-b-2 border-gray-400">
-                            Price
+                            Blood Group
                         </th>
                         <th class="px-5 py-3 text-xs font-semibold tracking-wider text-left text-gray-600 uppercase bg-gray-200 border-b-2 border-gray-400">
-                            Quantity
+                            Available Stock
                         </th>
                         <th class="px-5 py-3 text-xs font-semibold tracking-wider text-left text-gray-600 uppercase bg-gray-200 border-b-2 border-gray-400">
-                            Sub Total
+                            Requested Stock
                         </th>
                         <th class="px-5 py-3 text-xs font-semibold tracking-wider text-left text-gray-600 uppercase bg-gray-200 border-b-2 border-gray-400">
+                            Action
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-                    @php $total = 0 @endphp
+                    @php $total_requested_blood = 0 @endphp
                     @if (session('cart'))
                         @foreach (session('cart') as $id => $details)
-                            @php $total += $details['bloodstock_count'] * $details['quantity'] @endphp
+                            @php $total_requested_blood += $details['requested_stock'] @endphp
                             <tr data-id="{{ $id }}">
-                                <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                                    <div class="flex items-center">
-                                        <div class="ml-3" data-th="Product">
-                                            <p class="text-gray-900 whitespace-no-wrap">
-                                                {{ $details['bloodstock_name'] }}
-                                            </p>
-                                        </div>
-                                    </div>
+
+                                <td data-th="Price" class="px-5 py-5 text-sm bg-white border-b border-gray-200">
+                                    <p class="text-gray-900 whitespace-no-wrap">{{ $details['hospital_name'] }}</p>
                                 </td>
 
                                 <td data-th="Price" class="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                                    <p class="text-gray-900 whitespace-no-wrap">${{ $details['bloodstock_count'] }}</p>
+                                    <p class="text-gray-900 whitespace-no-wrap">{{ $details['blood_group'] }}</p>
                                 </td>
 
-                                <td data-th="Quantity" class="px-5 py-5 text-sm bg-white border-b border-gray-200">
+                                <td data-th="HospitalStock" class="px-5 py-5 text-sm bg-white border-b border-gray-200">
+                                    <p class="text-gray-900 whitespace-no-wrap">{{ $details['hospital_stock'] }}</p>
+                                </td>
+
+                                <td data-th="RequestedStock" class="px-5 py-5 text-sm bg-white border-b border-gray-200">
                                     <p class="text-gray-900 whitespace-no-wrap">
-                                        <input type="number" value="{{ $details['quantity'] }}" class="form-control quantity update-cart" />
+                                        <input type="number" value="{{ $details['requested_stock'] }}" class="form-control requested_stock update-cart" />
                                     </p>
-                                </td>
-
-                                <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                                    <span class="relative inline-block px-3 py-1 font-semibold leading-tight text-green-900">
-                                        <span aria-hidden class="absolute inset-0 bg-green-200 rounded-full opacity-50"></span>
-                                        <span class="relative">$ {{ $details['bloodstock_count'] * $details['quantity'] }}</span>
-                                    </span>
                                 </td>
 
                                 <td data-th="" class="px-5 py-5 text-sm bg-white border-b border-gray-200">
@@ -85,19 +78,19 @@
 
                 <tfoot>
                     <tr class="rounded-lg">
-                        <td class="px-5 py-3 text-xs font-semibold tracking-wider text-left text-gray-600 uppercase bg-gray-200 border-b-2 border-gray-400">
-                            <a href="{{ url('/') }}" class="btn btn-warning">Continue Shopping</a>
-                            <a href="{{ route('newOrder') }}" type="submit" class="btn btn-success">Checkout</a>
+                        <td class="px-2 py-3 text-xs font-semibold tracking-wider text-left text-gray-600 uppercase bg-gray-200 border-b-2 border-gray-400">
+                            <a href="{{ url('/BrowseHospitals') }}" class="btn btn-warning">Browse Other Stocks</a>
                         </td>
-                        <td class="px-5 py-3 text-xs font-semibold tracking-wider text-left text-gray-600 uppercase bg-gray-200 border-b-2 border-gray-400">
+                        <td class="px-2 py-3 text-xs font-semibold tracking-wider text-left text-gray-600 uppercase bg-gray-200 border-b-2 border-gray-400">
+                            <a href="{{ route('newOrder') }}" type="submit" class="btn btn-success">Send to Approval</a>
                         </td>
-                        <td class="px-5 py-3 text-xs font-semibold tracking-wider text-left text-gray-600 uppercase bg-gray-200 border-b-2 border-gray-400">
-                            <span class="text-xl">Total</span>
+                        <td class="px-2 py-3 text-xs font-semibold tracking-wider text-left text-gray-600 uppercase bg-gray-200 border-b-2 border-gray-400">
+                            <span class="text-xl">Total Requested Blood Count</span>
                         </td>
-                        <td class="px-5 py-3 text-xs font-semibold tracking-wider text-left text-gray-600 uppercase bg-gray-200 border-b-2 border-gray-400">
-                            <div class="ml-2 badge badge-outline">${{ $total }}</div>
+                        <td class="px-2 py-3 text-xs font-semibold tracking-wider text-left text-gray-600 uppercase bg-gray-200 border-b-2 border-gray-400">
+                            <div class="p-4 ml-2 text-lg badge badge-outline">{{ $total_requested_blood }}</div>
                         </td>
-                        <td class="px-5 py-3 text-xs font-semibold tracking-wider text-left text-gray-600 uppercase bg-gray-200 border-b-2 border-gray-400">
+                        <td class="px-2 py-3 text-xs font-semibold tracking-wider text-left text-gray-600 uppercase bg-gray-200 border-b-2 border-gray-400">
                         </td>
                     </tr>
                 </tfoot>
@@ -121,7 +114,7 @@
                     data: {
                         _token: '{{ csrf_token() }}',
                         id: ele.parents("tr").attr("data-id"),
-                        quantity: ele.parents("tr").find(".quantity").val()
+                        requested_stock: ele.parents("tr").find(".requested_stock").val()
                     },
                     success: function(response) {
                         window.location.reload();

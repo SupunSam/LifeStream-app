@@ -34,7 +34,9 @@
                         </div>
                         <div class="stat-title">{{ $bloodstock->bldtyp->bloodtype_name }}</div>
                         <div class="stat-value">{{ $bloodstock->count }}l</div>
-                        {{-- <div class="mt-2 stat-desc"><a href="{{ route('add.to.cart', [$bloodstock->id, $hospital->id]) }}" class="btn btn-sm btn-error">Request</a></div> --}}
+                        <div class="mt-2 stat-desc">
+                            <a href="{{ route('add.to.cart', ['bldid' => $bloodstock->blood_type_id, 'hsptlid' => $hospital->id]) }}" class="btn btn-sm btn-error">Request</a>
+                        </div>
                     </div>
                 </div>
             @endforeach
@@ -54,7 +56,7 @@
                     data: {
                         _token: '{{ csrf_token() }}',
                         id: ele.parents("tr").attr("data-id"),
-                        quantity: ele.parents("tr").find(".quantity").val()
+                        requested_stock: ele.parents("tr").find(".requested_stock").val()
                     },
                     success: function(response) {
                         window.location.reload();

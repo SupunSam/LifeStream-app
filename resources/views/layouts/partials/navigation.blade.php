@@ -83,9 +83,9 @@
                                 {{ __('Profile') }}
                             </x-dropdown-link>
 
-                            {{-- <x-dropdown-link :href="route('orders')">
+                            <x-dropdown-link :href="route('orders')">
                                 {{ __('Orders') }}
-                            </x-dropdown-link> --}}
+                            </x-dropdown-link>
 
                             <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}">

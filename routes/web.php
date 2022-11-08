@@ -86,7 +86,7 @@ Route::group(['middleware' => 'auth'], function () {
         ->name('MyRequests');
 
     Route::get('cart', [OrderController::class, 'cart'])->name('cart');
-    Route::get('add-to-cart/{id}', [OrderController::class, 'addToCart'])->name('add.to.cart');
+    Route::get('add-to-cart/{bldid}', [OrderController::class, 'addToCart'])->name('add.to.cart');
     Route::patch('update-cart', [OrderController::class, 'update'])->name('update.cart');
     Route::delete('remove-from-cart', [OrderController::class, 'remove'])->name('remove.from.cart');
 

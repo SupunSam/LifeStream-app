@@ -15,8 +15,8 @@
                 @foreach ($bloodstocks as $bloodstock)
                     <div class="shadow-sm card bg-accent text-accent-content">
                         <div class="card-body">
-                            <h2 class="card-title">{{ $bloodstock->bloodstock_name }}</h2>
-                            <p class="line-clamp-3">{{ $bloodstock->bloodstock_group }}</p>
+                            <h2 class="card-title">{{ $bloodstock->bldtyp->bloodtype_name }}</h2>
+                            <p class="line-clamp-3">{{ $bloodstock->count }}</p>
                             <div class="card-actions">
                                 <a class="btn btn-secondary" href="{{ route('add.to.cart', $bloodstock->id) }}">Add to Cart</a>
                             </div>

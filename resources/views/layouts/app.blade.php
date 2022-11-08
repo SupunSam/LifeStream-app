@@ -34,7 +34,7 @@
                 {{ $header }}
 
                 <!-- Cart -->
-                {{-- @include('layouts.partials.cart') --}}
+                @include('layouts.partials.cart')
             </div>
         </header>
 

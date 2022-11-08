@@ -9,8 +9,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                 </svg>
                 <span class="mx-2 font-bold text-gray-700 text-2xm group-hover:text-gray-800">{{ count((array) session('cart')) }}</span>
-                <span class="font-bold text-gray-700 text-2xm group-hover:text-gray-800">Cart</span>
-                {{-- <span class="sr-only">items in cart, view bag</span> --}}
+                <span class="font-bold text-gray-700 text-2xm group-hover:text-gray-800">Requests</span>
             </button>
         </x-slot>
 
@@ -28,12 +27,12 @@
                                 </svg>
                             </div>
                             <div class="flex-auto w-32 text-sm">
-                                <div class="font-bold">{{ $details['bloodstock_name'] }}</div>
-                                <div class="truncate">${{ $details['bloodstock_count'] }}</div>
-                                <div class="text-gray-400">Qt: {{ $details['quantity'] }}</div>
+                                <div class="font-bold">{{ $details['blood_group'] }}</div>
+                                <div class="truncate">{{ $details['hospital_name'] }}</div>
+                                <div class="text-gray-400">{{ $details['hospital_stock'] }}</div>
                             </div>
                             <div class="flex flex-col items-end font-medium w-18">
-                                <div class="w-4 h-4 mb-6 text-red-700 rounded-full cursor-pointer hover:bg-red-200">
+                                <div class="w-4 h-4 mb-4 text-red-700 rounded-full cursor-pointer hover:bg-red-200">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor"
                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2 ">
                                         <polyline points="3 6 5 6 21 6"></polyline>
@@ -43,7 +42,7 @@
                                         <line x1="14" y1="11" x2="14" y2="17"></line>
                                     </svg>
                                 </div>
-                                $12.22
+                                {{ $details['requested_stock'] }}
                             </div>
                         </div>
                     @endforeach
@@ -81,13 +80,7 @@
                 </div>
 
                 <div class="flex justify-center p-4 bg-base-300">
-                    {{-- Total Calculation --}}
-                    @php $total = 0 @endphp
-                    @foreach ((array) session('cart') as $id => $details)
-                        @php $total += $details['bloodstock_count'] * $details['quantity'] @endphp
-                    @endforeach
-                    {{-- Total Calculation End --}}
-                    <a href="{{ route('cart') }}" class="btn btn-sm btn-outline btn-success">Checkout $ {{ $total }}</a>
+                    <a href="{{ route('cart') }}" class="btn btn-sm btn-outline btn-success">Complete Requests</a>
                 </div>
 
             </x-cart-dropdown-link>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Models\BloodStock;
+use App\Models\BloodType;
 use App\Models\OrderItem;
 use App\Models\Hospital;
 use Illuminate\Http\Request;
@@ -17,35 +18,40 @@ class OrderController extends Controller
         return view('checkout');
     }
 
-    public function addToCart($id)
+    public function addToCart(Request $request)
     {
-        $bloodstock = BloodStock::findOrFail($id);
+        $bldid = $request->bldid;
+        $hsptlid = $request->hsptlid;
+        $hsptlname = Hospital::findOrFail($hsptlid)->hsptl_name;
+        $bloodstock = BloodStock::where('blood_type_id', $bldid)->where('hospital_id', $hsptlid)->get()->first();
+
+        $bldtypename = BloodType::find($bldid)->bloodtype_name;
 
         $cart = session()->get('cart', []);
 
-        if (isset($cart[$id])) {
-            $cart[$id]['quantity']++;
+        if (isset($cart[$bldid])) {
+            $cart[$bldid]['requested_stock']++;
         } else {
-            $cart[$id] = [
-                "hospital_id" => $bloodstock->hospital_id,
-                "bloodstock_id" => $bloodstock->id,
-                "bloodstock_name" => $bloodstock->bloodstock_name,
-                "quantity" => 1,
-                "bloodstock_count" => $bloodstock->bloodstock_count
+            $cart[$bldid] = [
+                "hospital_id" => $hsptlid,
+                "bloodstock_id" => $bldid,
+                "hospital_name" => $hsptlname,
+                "blood_group" => $bldtypename,
+                "hospital_stock" => $bloodstock->count,
+                "requested_stock" => 100,
             ];
         }
-
         session()->put('cart', $cart);
         return redirect()->back()->with('success', 'BloodStock added to cart successfully!');
     }
 
     public function update(Request $request)
     {
-        if ($request->id && $request->quantity) {
+        if ($request->id && $request->requested_stock) {
             $cart = session()->get('cart');
-            $cart[$request->id]["quantity"] = $request->quantity;
+            $cart[$request->id]["requested_stock"] = $request->requested_stock;
             session()->put('cart', $cart);
-            session()->flash('success', 'Cart updated successfully');
+            session()->flash('success', 'Request updated successfully');
         }
     }
 
@@ -57,7 +63,7 @@ class OrderController extends Controller
                 unset($cart[$request->id]);
                 session()->put('cart', $cart);
             }
-            session()->flash('success', 'BloodStock removed successfully');
+            session()->flash('success', 'Request removed successfully');
         }
     }
 
@@ -65,10 +71,12 @@ class OrderController extends Controller
     {
         $cart = session()->get('cart');
 
+        dd($cart);
+
         $totalAmount = 0;
 
         foreach ($cart as $item) {
-            $totalAmount += $item['bloodstock_count'] * $item['quantity'];
+            $totalAmount += $item['bloodstock_count'] * $item['requested_stock'];
             $hospital = $item['hospital_id'];
         }
 
@@ -87,7 +95,7 @@ class OrderController extends Controller
                 [
                     'bloodstock_name' => $item['bloodstock_name'],
                     'bloodstock_count' => $item['bloodstock_count'],
-                    'bloodstock_qty' => $item['quantity'],
+                    'bloodstock_qty' => $item['requested_stock'],
                 ]
             ];
 
@@ -95,8 +103,8 @@ class OrderController extends Controller
             $orderItem->order_id = $order->id;
             $orderItem->blood_item_id = $item['bloodstock_id'];
             $orderItem->blood_name = $item['bloodstock_name'];
-            $orderItem->blood_qty = $item['quantity'];
-            $orderItem->amount = $item['bloodstock_count'] * $item['quantity'];
+            $orderItem->blood_qty = $item['requested_stock'];
+            $orderItem->amount = $item['bloodstock_count'] * $item['requested_stock'];
             $orderItem->save();
         }
 
