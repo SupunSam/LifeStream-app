@@ -13,11 +13,6 @@ class BloodStock extends Model
 
     protected $fillable = ['hospital_id', 'user_id', 'blood_type_id', 'event_id', 'source', 'count'];
 
-    public function hasManyHospitals(array $hospital)
-    {
-        return null !== $this->hospitals()->whereIn('hospital_id', $hospital)->first();
-    }
-
     public function hasManyBloodTypes(array $bloodtype)
     {
         return null !== $this->bloodtypes()->whereIn('blood_type_id', $bloodtype)->first();

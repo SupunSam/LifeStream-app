@@ -18,7 +18,6 @@ class User extends Authenticatable
         return $this->hasMany(Hospital::class);
     }
 
-
     /**
      * The attributes that are mass assignable.
      *

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\BloodStock;
 use App\Models\BloodType;
 use App\Models\Hospital;
+use App\Models\OrderItem;
+use App\Models\Order;
 use App\Models\Event;
 use App\Exports\BloodStocksExport;
 use Maatwebsite\Excel\Facades\Excel;
@@ -105,5 +107,48 @@ class BloodStockController extends Controller
     public function export()
     {
         return Excel::download(new BloodStocksExport, 'Bloodstock_Report.xlsx');
+    }
+
+    public function transfer(Request $request)
+    {
+        request()->validate([
+            'order_id' => 'required',
+            'order_item_id' => 'required',
+            'src_hsptl_id' => 'required',
+            'src_bldstk_id' => 'required',
+            'src_currstk' => 'required',
+            'src_aftrstk' => 'required',
+            'dest_hsptl_id' => 'required',
+            'dest_bldstk_id' => 'required',
+            'dest_currstk' => 'required',
+            'dest_aftrstk' => 'required',
+        ]);
+
+        $orderid = $request->input('order_id');
+        $orderitemid = $request->input('order_item_id');
+        $srcbldstkid = $request->input('src_bldstk_id');
+        $destbldstkid = $request->input('dest_bldstk_id');
+
+        $srcbldstk = BloodStock::find($srcbldstkid);
+        $destbldstk = BloodStock::find($destbldstkid);
+        $orderitem = OrderItem::find($orderitemid);
+        $order = Order::find($orderid);
+        // dd($orderitem);
+        $srcbldstk->count = $request->input('src_aftrstk');
+        $destbldstk->count = $request->input('dest_aftrstk');
+        $orderitem->status = 1;
+
+        $srcbldstk->save();
+        $destbldstk->save();
+        $orderitem->save();
+        // dd(OrderItem::where('order_id', '=', $orderid)->where('status', '=', '2')->exists());
+        // Check for pending items for order
+        if (OrderItem::where('order_id', '=', $orderid)->where('status', '=', '2')->exists()) {
+            return view('admin.dashboard')->with('success', 'Transaction completed successfully.');;
+        } else {
+            $order->status = 1;
+            $order->save();
+            return view('admin.dashboard')->with('success', 'Transaction completed successfully.');;
+        }
     }
 }

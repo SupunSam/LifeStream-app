@@ -7,6 +7,7 @@ use App\Models\BloodStock;
 use App\Models\BloodType;
 use App\Models\OrderItem;
 use App\Models\Hospital;
+use App\Models\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,10 +22,15 @@ class OrderController extends Controller
     public function addToCart(Request $request)
     {
         $bldid = $request->bldid;
-        $hsptlid = $request->hsptlid;
-        $hsptlname = Hospital::findOrFail($hsptlid)->hsptl_name;
-        $bloodstock = BloodStock::where('blood_type_id', $bldid)->where('hospital_id', $hsptlid)->get()->first();
 
+        $srchsptlid = $request->srchsptlid;
+        $srcbldstkid = BloodStock::where('blood_type_id', $bldid)->where('hospital_id', $srchsptlid)->get()->first()->id;
+
+        $desthsptlid = (Hospital::where('user_id', $request->userid)->get()->first())->id;
+        $destbldstkid = BloodStock::where('blood_type_id', $bldid)->where('hospital_id', $desthsptlid)->get()->first()->id;
+
+        $srchsptlname = Hospital::findOrFail($srchsptlid)->hsptl_name;
+        $srchsptlstk = BloodStock::where('blood_type_id', $bldid)->where('hospital_id', $srchsptlid)->get()->first()->count;
         $bldtypename = BloodType::find($bldid)->bloodtype_name;
 
         $cart = session()->get('cart', []);
@@ -33,11 +39,14 @@ class OrderController extends Controller
             $cart[$bldid]['requested_stock']++;
         } else {
             $cart[$bldid] = [
-                "hospital_id" => $hsptlid,
-                "bloodstock_id" => $bldid,
-                "hospital_name" => $hsptlname,
+                "src_hsptl_id" => $srchsptlid,
+                "src_hsptl_name" => $srchsptlname,
+                "src_bldstk_id" => $srcbldstkid,
+                "dest_hsptl_id" => $desthsptlid,
+                "dest_bldstk_id" => $destbldstkid,
+                "bloodtype_id" => $bldid,
                 "blood_group" => $bldtypename,
-                "hospital_stock" => $bloodstock->count,
+                "src_hsptl_stock" => $srchsptlstk,
                 "requested_stock" => 100,
             ];
         }
@@ -71,20 +80,18 @@ class OrderController extends Controller
     {
         $cart = session()->get('cart');
 
-        dd($cart);
-
         $totalAmount = 0;
 
         foreach ($cart as $item) {
-            $totalAmount += $item['bloodstock_count'] * $item['requested_stock'];
-            $hospital = $item['hospital_id'];
+            $totalAmount += $item['src_hsptl_stock'] * $item['requested_stock'];
+            $hospital = $item['src_hsptl_id'];
         }
 
         $order = new Order();
         $order->user_id = Auth::user()->id;
         $order->hospital_id = $hospital;
-        $order->total_count = $totalAmount;
-        $order->status = "Placed";
+        $order->total_count = count($cart);
+        $order->status = 5;
 
         $order->save();
 
@@ -93,36 +100,44 @@ class OrderController extends Controller
         foreach ($cart as $item) {
             $data['items'] = [
                 [
-                    'bloodstock_name' => $item['bloodstock_name'],
-                    'bloodstock_count' => $item['bloodstock_count'],
-                    'bloodstock_qty' => $item['requested_stock'],
+                    'src_hsptl_id' => $item['src_hsptl_id'],
+                    'src_bldstk_id' => $item['src_bldstk_id'],
+                    'dest_hsptl_id' => $item['dest_hsptl_id'],
+                    'dest_bldstk_id' => $item['dest_bldstk_id'],
+                    'bloodtype_id' => $item['bloodtype_id'],
+                    'src_hsptl_stock' => $item['src_hsptl_stock'],
+                    'requested_stock' => $item['requested_stock'],
                 ]
             ];
 
             $orderItem = new OrderItem();
             $orderItem->order_id = $order->id;
-            $orderItem->blood_item_id = $item['bloodstock_id'];
-            $orderItem->blood_name = $item['bloodstock_name'];
-            $orderItem->blood_qty = $item['requested_stock'];
-            $orderItem->amount = $item['bloodstock_count'] * $item['requested_stock'];
+            $orderItem->src_hsptl_id = $item['src_hsptl_id'];
+            $orderItem->src_bldstk_id = $item['src_bldstk_id'];
+            $orderItem->dest_hsptl_id = $item['dest_hsptl_id'];
+            $orderItem->dest_bldstk_id = $item['dest_bldstk_id'];
+            $orderItem->blood_type_id = $item['bloodtype_id'];
+            $orderItem->requested_stock = $item['requested_stock'];
+            $orderItem->status = 2;
             $orderItem->save();
         }
 
         $hospitals = Hospital::orderBy('created_at', 'desc')->paginate(3);
-        return view('index')->with('hospitals', $hospitals);
+        $events = Event::get();
+        session()->forget('cart');
+        return view('index')->with('hospitals', $hospitals)->with('events', $events);
     }
 
     public function orders()
     {
         $owner = Auth::user()->id;
-        $data = Order::where('user_id', $owner)->first();
+        $myhospital = (Hospital::where('user_id', $owner)->get()->first())->id;
 
-        $orders = Order::where('user_id', $owner)->orderBy('created_at', 'desc')->paginate(5);
-        // dd($data);
-        // $hospital = Hospital::where('id', $data->hospital_id)->first();
-        $hospital = 1;
+        $hospitals = Hospital::where('user_id', $owner)->orderBy('created_at', 'desc')->paginate(5);
+        $rcvdorders = Order::where('hospital_id', $myhospital)->orderBy('created_at', 'desc')->paginate(5);
+        $rqstorders = Order::where('user_id', $owner)->orderBy('created_at', 'desc')->paginate(5);
 
-        return view('users.myorders', compact('orders', 'hospital'));
+        return view('hospitals.myhsptl', compact('hospitals', 'rcvdorders', 'rqstorders'));
     }
 
     public function show($id)

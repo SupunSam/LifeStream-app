@@ -16,11 +16,13 @@ class CreateOrderItemsTable extends Migration
         Schema::create('order_items', function (Blueprint $table) {
             $table->id();
             $table->foreignId('order_id')->constrained();
-            $table->foreignId('blood_stock_id')->constrained();
+            $table->integer('src_hsptl_id');
+            $table->integer('src_bldstk_id');
+            $table->integer('dest_hsptl_id');
+            $table->integer('dest_bldstk_id');
             $table->foreignId('blood_type_id')->constrained();
-            $table->string('bloodstock_qty');
-            $table->integer('bloodstock_count');
-
+            $table->integer('requested_stock');
+            $table->integer('status');
             $table->timestamps();
         });
     }

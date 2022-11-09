@@ -7,9 +7,9 @@
     </x-slot>
 
     @section('content')
-        <div class="grid grid-cols-1 gap-6 xl:grid-cols-2 sm:gap-6">
+        <div class="grid grid-cols-6 gap-6 xl:grid-cols-2 sm:gap-6">
 
-            <div class="col-span-2 shadow-2xl card lg:card-side bg-info text-secondary-content">
+            <div class="col-span-1 shadow-2xl card lg:card-side bg-info text-secondary-content">
                 <div class="card-body">
                     <h1 class="text-2xl">Hospital Management</h1>
                     <div class="justify-end card-actions">
@@ -22,7 +22,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-span-2 shadow-2xl card lg:card-side bg-info text-secondary-content">
+            <div class="col-span-1 shadow-2xl card lg:card-side bg-info text-secondary-content">
                 <div class="card-body">
                     <h1 class="text-2xl">Events Management</h1>
                     <div class="justify-end card-actions">
@@ -35,7 +35,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-span-2 shadow-2xl card lg:card-side bg-info text-secondary-content">
+            <div class="col-span-1 shadow-2xl card lg:card-side bg-info text-secondary-content">
                 <div class="card-body">
                     <h1 class="text-2xl">User Request Management</h1>
                     <div class="justify-end card-actions">
@@ -48,7 +48,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-span-2 shadow-2xl card lg:card-side bg-info text-secondary-content">
+            <div class="col-span-1 shadow-2xl card lg:card-side bg-info text-secondary-content">
                 <div class="card-body">
                     <h1 class="text-2xl">BloodStocks Management</h1>
                     <div class="justify-end card-actions">
@@ -61,7 +61,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-span-2 shadow-2xl card lg:card-side bg-info text-secondary-content">
+            <div class="col-span-1 shadow-2xl card lg:card-side bg-info text-secondary-content">
                 <div class="card-body">
                     <h1 class="text-2xl">User Management</h1>
                     <div class="justify-end card-actions">
@@ -74,7 +74,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-span-2 shadow-2xl card lg:card-side bg-info text-secondary-content">
+            <div class="col-span-1 shadow-2xl card lg:card-side bg-info text-secondary-content">
                 <div class="card-body">
                     <h1 class="text-2xl whitespace-nowrap">Roles Management</h1>
                     <div class="justify-end card-actions">

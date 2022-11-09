@@ -29,4 +29,9 @@ class Order extends Model
     {
         return $this->belongsTo(Hospital::class, 'hospital_id', 'id');
     }
+
+    public function reqstatus()
+    {
+        return $this->belongsTo(Status::class, 'status', 'id');
+    }
 }

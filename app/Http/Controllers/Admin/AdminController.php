@@ -7,6 +7,7 @@ use App\Models\BloodStock;
 use App\Models\BloodType;
 use App\Models\Event;
 use App\Models\Hospital;
+use App\Models\OrderItem;
 use App\Models\UserRequest;
 use Illuminate\Http\Request;
 
@@ -38,11 +39,20 @@ class AdminController extends Controller
 
     public function bloodmanage()
     {
-        $bloodstocks = BloodStock::orderBy('created_at', 'desc')->paginate(5);
+        $bloodstocks = BloodStock::orderBy('created_at', 'desc')->paginate(8);
         $allbloodstocks = BloodStock::groupBy(['blood_type_id'])
             ->selectRaw('sum(count) as count, blood_type_id')
             ->get();
         $bloodtypes = BloodType::all();
         return view('admin.blood.manage')->with('bloodstocks', $bloodstocks)->with('bloodtypes', $bloodtypes)->with('allbloodstocks', $allbloodstocks);
+    }
+
+    public function bloodtransactions()
+    {
+        $bloodstocks = BloodStock::orderBy('created_at', 'desc')->paginate(8);
+        $orderitems = OrderItem::all();
+        // dd($orderitems->first()->srcbldstk->count, $orderitems->first()->destbldstk->count);
+        $bloodtypes = BloodType::all();
+        return view('admin.blood.transactions')->with('bloodstocks', $bloodstocks)->with('bloodtypes', $bloodtypes)->with('orderitems', $orderitems);
     }
 }

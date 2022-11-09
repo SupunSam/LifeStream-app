@@ -11,12 +11,12 @@
           <span class="footer-title">Links</span>
 
           <ul class="links-list">
-              <li><a href="#">Optician</a></li>
-              <li><a href="#">Shop</a></li>
-              <li><a href="#">Pediatrics</a></li>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">News</a></li>
+              <li><a href="#">Blood Centers</a></li>
+              <li><a href="#">Blood Stocks</a></li>
+              <li><a href="#">Hospitals</a></li>
               <li><a href="#">Contact Us</a></li>
-              <li><a href="#">Dermatology</a></li>
-              <li><a href="#">Doctors</a></li>
           </ul>
       </div>
       <div>
@@ -48,11 +48,13 @@
           <span class="footer-title">Opening Hours</span>
 
           <ul class="opening-hours">
-              <li>Mon - Tues <span>9.00AM - 17.00PM</span></li>
-              <li>Wednesday <span>9.00AM - 17.00PM</span></li>
-              <li>Thursday <span>9.00AM - 17.00PM</span></li>
-              <li>Friday <span>9.00AM - 17.00PM</span></li>
-              <li>Saturday <span>Closed</span></li>
+              <li>Monday - <span>9.00AM - 17.00PM</span></li>
+              <li>Tuesday - <span>9.00AM - 17.00PM</span></li>
+              <li>Wednesday - <span>9.00AM - 17.00PM</span></li>
+              <li>Thursday - <span>9.00AM - 17.00PM</span></li>
+              <li>Friday - <span>9.00AM - 17.00PM</span></li>
+              <li>Saturday - <span>Closed</span></li>
+              <li>Sunday - <span>Closed</span></li>
           </ul>
       </div>
       </div>

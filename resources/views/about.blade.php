@@ -16,7 +16,7 @@
         <!-- Start About Area -->
         <section class="about-area ptb-100">
             <div class="grid grid-cols-2 gap-4">
-                <div class="about-image">
+                <div class="rounded-lg about-image">
                     <img src="{{ asset('storage/homepage/blog/8.jpg') }}" alt="image">
                 </div>
                 <div class="about-content">
@@ -69,7 +69,7 @@
                         <li><i class="flaticon-check-mark"></i>&nbsp;&nbsp;Dr. Ruwani Wijesiri (MBBS, DTM)</li>
                     </ul>
                 </div>
-                <div class="our-mission-image">
+                <div class="rounded-lg our-mission-image">
                     <img src="{{ asset('storage/homepage/blog/6.jpg') }}" alt="image">
                 </div>
             </div>

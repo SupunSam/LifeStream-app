@@ -108,6 +108,11 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'auth'], fu
         ->name('requests.manage');
     Route::get('blood', [AdminController::class, 'bloodmanage'])
         ->name('blood.manage');
+    Route::get('transactions', [AdminController::class, 'bloodtransactions'])
+        ->name('blood.transactions');
+
+    //Report Generation Routes
+    Route::post('bloodstocks/transfer/', [BloodStockController::class, 'transfer'])->name('bloodstocks.transfer');
 
     //Report Generation Routes
     Route::get('bloodstocks/export/', [BloodStockController::class, 'export'])->name('bloodstocks.export');

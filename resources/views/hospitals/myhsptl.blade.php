@@ -6,23 +6,28 @@
         </h2>
     </x-slot>
 
-    @section('content')
+    @section('pagecdns')
+        <style>
+            #tabRequested {
+                display: none;
+            }
+        </style>
+    @endsection
 
+    @section('content')
         @hasrole('Owner')
-            <a href="{{ route('hospital.create') }}" class="btn btn-success" role="button">Create New Hospital</a>
+            <a href="{{ route('hospital.create') }}" class="btn btn-success" role="button">Add New Hospital</a>
         @endhasrole
 
-        <div class="grid grid-cols-1 gap-6 my-4 xl:grid-cols-5 sm:gap-6">
+        <div class="my-4">
 
             @foreach ($hospitals as $hospital)
-                <div class="shadow-sm card bg-accent text-accent-content">
-                    <figure>
-                        <img src="{{ asset($hospital->hsptl_cover) }}">
-                    </figure>
+                <div class="shadow-xl card card-side bg-base-100">
+                    <figure><img src="{{ asset($hospital->hsptl_cover) }}" alt="hospital"></figure>
                     <div class="card-body">
                         <h2 class="card-title">{{ $hospital->hsptl_name }}</h2>
-                        <p class="line-clamp-3">{{ $hospital->hsptl_desc }}</p>
-                        <div class="card-actions">
+                        <p>{{ $hospital->hsptl_desc }}</p>
+                        <div class="justify-end card-actions">
                             <a class="btn btn-secondary" href="{{ route('hospital.show', $hospital->id) }}">View More</a>
                         </div>
                     </div>
@@ -32,93 +37,72 @@
         </div>
         {!! $hospitals->links() !!}
 
+        <div class="tabs tabs-boxed">
+            <a class="tab tablinks tab-lg tab-active" onclick="changeTab(event, 'tabRecieved')">Recieved</a>
+            <a class="tab tablinks tab-lg" onclick="changeTab(event, 'tabRequested')">Requested</a>
+        </div>
 
-        @if ($client != null)
-            {{-- Order Section --}}
-            <div class="my-6 overflow-x-auto">
-
-                <table class="min-w-full leading-normal rounded-lg">
+        <div id="tabRecieved" class="pb-6 my-6 overflow-x-auto tabcontent">
+            {{-- Recieved Order Section --}}
+            <div class="overflow-x-auto">
+                <table class="table w-full">
+                    <!-- head -->
                     <thead>
-                        <tr class="rounded-lg">
-                            <th class="px-5 py-3 text-xs font-semibold tracking-wider text-left text-gray-600 uppercase bg-gray-200 border-b-2 border-gray-400">
-                                Order&nbsp;&nbsp;#
-                            </th>
-                            <th class="px-5 py-3 text-xs font-semibold tracking-wider text-left text-gray-600 uppercase bg-gray-200 border-b-2 border-gray-400">
-                                Client Name
-                            </th>
-                            <th class="px-5 py-3 text-xs font-semibold tracking-wider text-left text-gray-600 uppercase bg-gray-200 border-b-2 border-gray-400">
-                                Total
-                                Price
-                            </th>
-                            <th class="px-5 py-3 text-xs font-semibold tracking-wider text-left text-gray-600 uppercase bg-gray-200 border-b-2 border-gray-400">
-                                Order
-                                Placed
-                            </th>
-                            <th class="px-5 py-3 text-xs font-semibold tracking-wider text-left text-gray-600 uppercase bg-gray-200 border-b-2 border-gray-400">
-                                Status
-                            </th>
-                            <th class="px-5 py-3 text-xs font-semibold tracking-wider text-left text-gray-600 uppercase bg-gray-200 border-b-2 border-gray-400">
-                                Actions
-                            </th>
+                        <tr>
+                            <th>Order</th>
+                            <th>Recieved From</th>
+                            <th>Recieved Count</th>
+                            <th>Recieved On</th>
+                            <th>Status</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($hsptlorders as $hsptlorder)
-                            <tr>
-                                <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                                    <div class="flex items-center">
-                                        <div>
-                                            <p class="font-semibold text-gray-900 whitespace-no-wrap">
-                                                {{ $hsptlorder->id }}
-                                            </p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                                    <p class="text-gray-900 whitespace-no-wrap">{{ $client->name }}</p>
-                                </td>
-                                <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                                    <p class="text-gray-900 whitespace-no-wrap">{{ $hsptlorder->total_count }}</p>
-                                </td>
-
-                                <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                                    <p class="text-gray-900 whitespace-no-wrap">
-                                        {{ $hsptlorder->created_at }}
-                                    </p>
-                                </td>
-
-                                <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                                    <p class="text-gray-900 whitespace-no-wrap">
-                                        <label class="badge badge-success">{{ $hsptlorder->status }}</label>
-                                    </p>
-                                </td>
-
-                                <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                                    <p class="text-gray-900 whitespace-no-wrap">
-                                        <a class="btn btn-sm btn-info" href="{{ route('orders.show', $hsptlorder->id) }}">Show</a>
-                                        <button type="button" class="btn btn-sm btn-accent"
-                                            onclick="event.preventDefault();document.getElementById('delete-order-form-{{ $hsptlorder->id }}').submit()">
-                                            Delete
-                                        </button>
-                                        {{-- Delete Form --}}
-                                    <form id="delete-order-form-{{ $hsptlorder->id }}" action="{{ route('orders.destroy', $hsptlorder->id) }}" method="post">
-                                        @csrf
-                                        @method('DELETE')
-                                    </form>
-                                    </p>
-                                </td>
-                            </tr>
-                        @endforeach
-
+                        @include('hospitals.partials.rcvdorders')
                     </tbody>
-
                 </table>
-
             </div>
+        </div>
 
-            {!! $hsptlorders->links() !!}
-        @endif
+        <div id="tabRequested" class="pb-6 my-6 overflow-x-auto tabcontent">
+            {{-- Requested Order Section --}}
+            <div class="overflow-x-auto">
+                <table class="table w-full">
+                    <!-- head -->
+                    <thead>
+                        <tr>
+                            <th>Order</th>
+                            <th>Recieved From</th>
+                            <th>Recieved Count</th>
+                            <th>Recieved On</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @include('hospitals.partials.rqstorders')
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    @endsection
 
+    @section('scripts')
+        <script type="text/javascript">
+            function changeTab(evt, tabName) {
+                var i, tabcontent, tablinks;
+                tabcontent = document.getElementsByClassName("tabcontent");
+                for (i = 0; i < tabcontent.length; i++) {
+                    tabcontent[i].style.display = "none";
+                }
+                tablinks = document.getElementsByClassName("tablinks");
+                for (i = 0; i < tablinks.length; i++) {
+                    tablinks[i].className = tablinks[i].className.replace(" tab-active", "");
+                }
+                document.getElementById(tabName).style.display = "block";
+                evt.currentTarget.className += " tab-active";
+            }
+        </script>
     @endsection
 
 </x-app-layout>

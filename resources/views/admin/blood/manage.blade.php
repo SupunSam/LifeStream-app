@@ -12,7 +12,7 @@
 
     @section('content')
         <a class="btn btn-primary" href="{{ route('admin.dashboard') }}">Go Back</a>
-        <a href="{{ route('bloodstocks.create') }}" class="btn btn-success" role="button">Add New BloodStock</a>
+        <a href="{{ route('admin.blood.transactions') }}" class="btn btn-success" role="button">Transactions</a>
         <a href="{{ route('admin.bloodstocks.export') }}" class="btn btn-info" role="button">Generate Report</a>
 
         <div class="flex flex-wrap mt-6">
@@ -119,30 +119,6 @@
         </div>
 
         {!! $bloodstocks->links() !!}
-    @endsection
-
-    @section('scripts')
-        <script type="text/javascript">
-            $("table#bldtypes").each(function() {
-                var $this = $(this);
-                var newrows = [];
-                $this.find("tr").each(function(rowToColIndex) {
-                    $(this).find("td, th").each(function(colToRowIndex) {
-                        if (newrows[colToRowIndex] === undefined) {
-                            newrows[colToRowIndex] = $("<tr></tr>");
-                        }
-                        while (newrows[colToRowIndex].find("td, th").length < rowToColIndex) {
-                            newrows[colToRowIndex].append($("<td></td>"));
-                        }
-                        newrows[colToRowIndex].append($(this));
-                    });
-                });
-                $this.find("tr").remove();
-                $.each(newrows, function() {
-                    $this.append(this);
-                });
-            });
-        </script>
     @endsection
 
 </x-app-layout>

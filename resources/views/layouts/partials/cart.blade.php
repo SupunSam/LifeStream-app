@@ -28,8 +28,8 @@
                             </div>
                             <div class="flex-auto w-32 text-sm">
                                 <div class="font-bold">{{ $details['blood_group'] }}</div>
-                                <div class="truncate">{{ $details['hospital_name'] }}</div>
-                                <div class="text-gray-400">{{ $details['hospital_stock'] }}</div>
+                                <div class="truncate">{{ $details['src_hsptl_name'] }}</div>
+                                <div class="text-gray-400">{{ $details['src_hsptl_stock'] }}</div>
                             </div>
                             <div class="flex flex-col items-end font-medium w-18">
                                 <div class="w-4 h-4 mb-4 text-red-700 rounded-full cursor-pointer hover:bg-red-200">

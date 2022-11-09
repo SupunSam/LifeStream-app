@@ -14,7 +14,7 @@
 
     @section('content')
         <!-- Start Page Title Area -->
-        <section class="pt-10 mb-10 page-title-area page-title-bg3">
+        <section class="pt-10 mb-10 rounded-lg page-title-area page-title-bg3">
             <div class="d-table">
                 <div class="d-table-cell">
                     <div class="container">
@@ -33,7 +33,7 @@
         <!-- Start About Area -->
         <section class="mb-10 about-area ptb-100">
             <div class="grid grid-cols-2 gap-4">
-                <div class="about-image">
+                <div class="rounded-lg about-image">
                     <img src="{{ asset('storage/homepage/blog/1.jpg') }}" alt="image">
                 </div>
                 <div class="about-content">
@@ -51,7 +51,7 @@
         <section class="pt-0 main-services-area ptb-100">
             <div class="grid grid-cols-2 gap-4">
 
-                <div class="main-services-box">
+                <div class="rounded-lg main-services-box">
                     <div class="icon">
                         <i class="flaticon-cancer"></i>
                     </div>
@@ -62,7 +62,7 @@
                         8.00am – 12.00pm on Saturdays</p>
                 </div>
 
-                <div class="main-services-box">
+                <div class="rounded-lg main-services-box">
                     <div class="icon">
                         <i class="flaticon-liver"></i>
                     </div>
@@ -71,7 +71,7 @@
                         issued for patients. Hours of the day including weekdays, weekends and public holidays</p>
                 </div>
 
-                <div class="main-services-box">
+                <div class="rounded-lg main-services-box">
                     <div class="icon">
                         <i class="flaticon-kidney"></i>
                     </div>
@@ -82,7 +82,7 @@
                     </p>
                 </div>
 
-                <div class="main-services-box">
+                <div class="rounded-lg main-services-box">
                     <div class="icon">
                         <i class="flaticon-ekg"></i>
                     </div>

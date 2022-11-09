@@ -35,7 +35,8 @@
                         <div class="stat-title">{{ $bloodstock->bldtyp->bloodtype_name }}</div>
                         <div class="stat-value">{{ $bloodstock->count }}l</div>
                         <div class="mt-2 stat-desc">
-                            <a href="{{ route('add.to.cart', ['bldid' => $bloodstock->blood_type_id, 'hsptlid' => $hospital->id]) }}" class="btn btn-sm btn-error">Request</a>
+                            <a href="{{ route('add.to.cart', ['bldid' => $bloodstock->blood_type_id, 'srchsptlid' => $hospital->id, 'userid' => Auth::user()->id]) }}"
+                                class="btn btn-sm btn-error">Request</a>
                         </div>
                     </div>
                 </div>

@@ -89,7 +89,7 @@
 
 {{-- Start Partner Area --}}
 <div class="col-span-1 p-6 mt-6 shadow-lg xl:col-span-3 card bg-base-100">
-    <section class="partner-area ptb-100 bg-f4f9fd">
+    <section class="partner-area bg-f4f9fd">
         <div class="container">
             <div class="section-title">
                 <h2 class="my-4 text-4xl font-bold card-title">Our Partners</h2>

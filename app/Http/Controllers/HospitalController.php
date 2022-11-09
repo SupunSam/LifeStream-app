@@ -35,18 +35,13 @@ class HospitalController extends Controller
     public function myhsptl()
     {
         $owner = Auth::user()->id;
-        $data = Order::where('user_id', $owner)->first();
+        $myhospital = (Hospital::where('user_id', $owner)->get()->first())->id;
 
         $hospitals = Hospital::where('user_id', $owner)->orderBy('created_at', 'desc')->paginate(5);
-        $hsptlorders = Order::where('user_id', $owner)->orderBy('created_at', 'desc')->paginate(5);
+        $rcvdorders = Order::where('hospital_id', $myhospital)->orderBy('created_at', 'desc')->paginate(5);
+        $rqstorders = Order::where('user_id', $owner)->orderBy('created_at', 'desc')->paginate(5);
 
-        if ($data == null) {
-            $client = null;
-        } else {
-            $client = User::where('id', $data->user_id)->first();
-        }
-
-        return view('hospitals.myhsptl', compact('hospitals', 'client', 'hsptlorders'));
+        return view('hospitals.myhsptl', compact('hospitals', 'rcvdorders', 'rqstorders'));
     }
 
     public function create()

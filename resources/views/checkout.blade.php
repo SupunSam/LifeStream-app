@@ -2,7 +2,7 @@
 
     <x-slot name="header">
         <h2 class="text-xl font-semibold leading-tight text-gray-800">
-            {{ __('Shopping Cart') }}
+            {{ __('Request Bucket') }}
         </h2>
     </x-slot>
 
@@ -44,7 +44,7 @@
                             <tr data-id="{{ $id }}">
 
                                 <td data-th="Price" class="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                                    <p class="text-gray-900 whitespace-no-wrap">{{ $details['hospital_name'] }}</p>
+                                    <p class="text-gray-900 whitespace-no-wrap">{{ $details['src_hsptl_name'] }}</p>
                                 </td>
 
                                 <td data-th="Price" class="px-5 py-5 text-sm bg-white border-b border-gray-200">
@@ -52,7 +52,7 @@
                                 </td>
 
                                 <td data-th="HospitalStock" class="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                                    <p class="text-gray-900 whitespace-no-wrap">{{ $details['hospital_stock'] }}</p>
+                                    <p class="text-gray-900 whitespace-no-wrap">{{ $details['src_hsptl_stock'] }}</p>
                                 </td>
 
                                 <td data-th="RequestedStock" class="px-5 py-5 text-sm bg-white border-b border-gray-200">
